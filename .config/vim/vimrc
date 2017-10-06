@@ -2,6 +2,8 @@ set encoding=utf-8
 set fileencoding=utf-8
 
 call plug#begin('~/.vim/bundle')
+Plug 'tweekmonster/startuptime.vim'
+Plug 'wakatime/vim-wakatime'
 
 " Bindings for vanilla vim
 set iskeyword-=.
@@ -23,7 +25,6 @@ if executable('tmux')
 endif
 "   Alias Q to do what we really want
 command! Q :q
-command! -bang Q :q!
 command! Qa :qa
 command! QA :qa
 map <Leader>q :q<CR>
@@ -31,6 +32,13 @@ map <Leader>q :q<CR>
 nmap <Leader>s :w<CR>
 "   Overwrite files that need sudo
 cmap w!! w !sudo tee % >/dev/null
+"   Handle some bindings that might not get caught by mintty
+map <Esc>[1;5D <C-Left>
+map <Esc>[1;5C <C-Right>
+map! <Esc>[1;5D <C-Left>
+map! <Esc>[1;5C <C-Right>
+map <Esc>[5;5~ <C-PageUp>
+map <Esc>[6;5~ <C-PageDown>
 "   Make Home go to the beginning of the indented line, not the line itself
 nnoremap <Home> ^
 "   Use Ctrl-Enter to go to a new line
@@ -128,8 +136,6 @@ if &term =~ '^screen'
 	execute "set <xRight>=\e[1;*C"
 	execute "set <xLeft>=\e[1;*D"
 	map <Esc>[B <Down>
-	map <Esc>[5;5~ <C-PageUp>
-	map <Esc>[6;5~ <C-PageDown>
 endif
 " Fix mouse stuff
 set mouse=a
@@ -570,6 +576,7 @@ let g:tagbar_type_javascript = {
 			\ }
 if executable('npm')
 	Plug 'mxw/vim-jsx'
+
 	Plug 'leafgarland/typescript-vim'
 	Plug 'posva/vim-vue', { 'do': 'npm i -g eslint eslint-plugin-vue' }
 endif
@@ -604,17 +611,12 @@ elseif has('win32')
 endif
 nmap <Leader>V :OpenFileInVisualStudio<CR>
 
-fun! s:SyntaxStack()
-	if !exists('*synstack')
-		return
-	endif
-	return map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-endfunc
-command! -nargs=0 EchoHighlightingGroup echo s:SyntaxStack()
-
 call plug#end()
 
-if empty(glob('~/.vim/bundle'))
-	PlugInstall --sync
-	so $MYVIMRC
-endif
+fun! s:SyntaxStack()
+  if !exists('*synstack')
+    return
+  endif
+  return map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+command! -nargs=0 EchoHighlightingGroup echo s:SyntaxStack()
