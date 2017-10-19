@@ -173,8 +173,9 @@ endfun
 call plug#add_end_task(function('s:ConfigureColors'))
 
 "   Status lines
-Plug 'vim-airline/vim-airline'
-set laststatus=2 " Make airline always appear
+Plug 'itchyny/lightline.vim'
+set laststatus=2
+set noshowmode
 "   Git integration
 Plug 'airblade/vim-gitgutter'
 Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'scrooloose/nerdtree'
