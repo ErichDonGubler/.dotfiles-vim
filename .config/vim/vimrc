@@ -1,4 +1,5 @@
 let $VIMHOME = $XDG_CONFIG_HOME . "/vim/"
+set rtp^=$VIMHOME
 set encoding=utf-8
 set fileencoding=utf-8
 
