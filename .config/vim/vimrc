@@ -176,7 +176,6 @@ call plug#add_end_task(function('s:ConfigureColors'))
 Plug 'vim-airline/vim-airline'
 set laststatus=2 " Make airline always appear
 "   Git integration
-Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'scrooloose/nerdtree'
 let g:NERDTreeIndicatorMapCustom = {
