@@ -572,8 +572,7 @@ augroup Batch
 	au!
 	autocmd FileType dosbatch setlocal commentstring=REM\ %s
 augroup END
-"   Sublime config files
-augroup sublime
+augroup SublimeConfigFiles
 	au!
 	au BufNewFile,BufRead *.sublime-project,*.sublime-build,*.sublime-snippet setlocal filetype=json
 augroup END
