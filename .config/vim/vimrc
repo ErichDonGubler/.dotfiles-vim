@@ -568,6 +568,10 @@ endif
 Plug 'leafgarland/typescript-vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'python-mode/python-mode'
+augroup Batch
+	au!
+	autocmd FileType dosbatch setlocal commentstring=REM\ %s
+augroup END
 "   Sublime config files
 augroup sublime
 	au!
