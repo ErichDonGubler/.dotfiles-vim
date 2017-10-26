@@ -410,7 +410,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-repeat'
-Plug 'terryma/vim-expand-region'
 "     Datetime
 nnoremap <F5> "=strftime("%F")<CR>P
 inoremap <F5> <C-R>=strftime("%F")<CR>
