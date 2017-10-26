@@ -2,6 +2,9 @@ let $VIMHOME = $XDG_CONFIG_HOME . "/vim/"
 set rtp^=$VIMHOME
 set encoding=utf-8
 set fileencoding=utf-8
+if !has('gui_running')
+	set t_Co=256
+endif
 
 call plug#begin($VIMHOME . '/bundle')
 Plug 'tweekmonster/startuptime.vim'
