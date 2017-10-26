@@ -208,8 +208,6 @@ set diffopt+=vertical
 "  Line numbers
 set cursorline
 set number
-" set number relativenumber
-" Plug 'jeffkreeftmeijer/vim-numbertoggle'
 " Distraction-free mode
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
