@@ -461,8 +461,8 @@ if executable('rg')
 	let g:ctrlsf_extra_backend_args = {
 		\ 'rg': '--follow'
 		\ }
-" else
-" 	let g:ctrlsf_ackprg = 'grep'
+elseif executable('grep')
+	let g:ctrlsf_ackprg = 'grep'
 endif
 
 " Builds
