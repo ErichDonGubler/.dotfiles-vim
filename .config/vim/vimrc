@@ -402,8 +402,7 @@ let g:vim_current_word#highlight_only_in_focused_window = 1
 hi link CurrentWord Underlined
 "    Misc
 Plug 'terryma/vim-multiple-cursors'
-Plug 'jiangmiao/auto-pairs'
-Plug 'tpope/vim-endwise'
+Plug 'cohama/lexima.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-abolish'
