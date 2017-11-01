@@ -189,11 +189,8 @@ set splitright
 Plug 'vim-scripts/ZoomWin'
 Plug 'simeji/winresizer'
 let g:winresizer_start_key = '<Leader><CR>'
-"   Better buffer closes with panes
-Plug 'qpkorr/vim-bufkill'
 " Better buffer/tab management
 Plug 'zefei/vim-wintabs'
-let g:wintabs_switchbuf = 'useopen'
 let g:wintabs_ui_show_vimtab_name = 2
 map <C-PageUp> :WintabsPrevious<CR>
 map <C-PageDown> :WintabsNext<CR>
