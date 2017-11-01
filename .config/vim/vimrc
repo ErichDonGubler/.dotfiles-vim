@@ -13,6 +13,7 @@ Plug 'wakatime/vim-wakatime'
 " Bindings for vanilla vim
 set iskeyword-=.
 let maplocalleader = '|'
+set clipboard=unnamed,unnamedplus
 "   Vim config manipulation
 nmap <silent> <leader>ve :vsp $VIMHOME<CR>
 nmap <silent> <leader>vs :so $MYVIMRC<CR>
