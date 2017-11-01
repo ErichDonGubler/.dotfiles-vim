@@ -605,3 +605,4 @@ fun! s:SyntaxStack()
 	return map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 command! -nargs=0 EchoHighlightingGroup echo s:SyntaxStack()
+nnoremap <leader>0 :EchoHighlightingGroup<CR>
