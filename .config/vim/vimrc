@@ -575,7 +575,7 @@ augroup SublimeConfigFiles
 augroup END
 
 fun! s:EscapeFileAsArg(file_name)
-	let escaped = expand('%:p')
+	let escaped = expand(a:file_name)
 	if has('win32unix')
 		let escaped = '"$(cygpath -w "' . escaped . '")"'
 	endif
