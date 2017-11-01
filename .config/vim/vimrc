@@ -590,9 +590,9 @@ command! -nargs=0 OpenFileInSublime exec '!subl ' . s:EscapeCurrentFileAsArg() .
 nmap <Leader>S :OpenFileInSublime<CR>
 
 if has('win32unix')
-	command! -nargs=0 OpenFileInVisualStudio exec '!devenv //edit ' . s:EscapeCurrentFileAsArg() . ' //command "' . line('.') . '"'
+	command! -nargs=0 OpenFileInVisualStudio exec 'silent !devenv //edit ' . s:EscapeCurrentFileAsArg() . ' //command "' . line('.') . '"' | redraw!
 elseif has('win32')
-	command! -nargs=0 OpenFileInVisualStudio exec '!devenv /edit ' . s:EscapeCurrentFileAsArg() . ' /command "' . line('.') . '"'
+	command! -nargs=0 OpenFileInVisualStudio exec 'silent !devenv /edit ' . s:EscapeCurrentFileAsArg() . ' /command "' . line('.') . '"' | redraw!
 endif
 nmap <Leader>V :OpenFileInVisualStudio<CR>
 
