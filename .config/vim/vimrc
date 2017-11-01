@@ -198,7 +198,7 @@ let g:lightline = {
 
 "   Git integration
 Plug 'airblade/vim-gitgutter'
-Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 let g:NERDTreeIndicatorMapCustom = {
 			\ "Clean"     : "✔︎",
 			\ "Deleted"   : "✖",
@@ -321,16 +321,16 @@ endif
 
 " Files
 "   Navigation
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeTabsToggle' }
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
 map <Leader>K :NERDTreeFind<CR>
-Plug 'jistr/vim-nerdtree-tabs' | Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
 let g:nerdtree_tabs_open_on_gui_startup = 2
 map <Leader>k :NERDTreeTabsToggle<CR>
-Plug 'ErichDonGubler/nerdtree-plugin-open-in-file-browser' | Plug 'scrooloose/nerdtree'
-Plug 'ErichDonGubler/nerdtree-ctrlp-root' | Plug 'ctrlpvim/ctrlp.vim' | Plug 'scrooloose/nerdtree'
-Plug 'dhruvasagar/vim-vinegar' | Plug 'scrooloose/nerdtree'
+Plug 'ErichDonGubler/nerdtree-plugin-open-in-file-browser', { 'on': 'NERDTreeTabsToggle' }
+Plug 'ErichDonGubler/nerdtree-ctrlp-root' | Plug 'ctrlpvim/ctrlp.vim'
+Plug 'dhruvasagar/vim-vinegar'
 "   Path/creation
 Plug 'EinfachToll/DidYouMean'
 Plug 'tpope/vim-eunuch'
