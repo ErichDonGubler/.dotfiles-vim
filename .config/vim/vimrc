@@ -18,7 +18,11 @@ set clipboard=unnamed,unnamedplus
 nmap <silent> <leader>ve :vsp $VIMHOME<CR>
 nmap <silent> <leader>vs :so $MYVIMRC<CR>
 fun! s:SetGlobalFileStore(option, name)
-	exec 'set ' . a:option . '=$XDG_CACHE_HOME/vim/' . a:name. '//'
+	let directory = $XDG_CACHE_HOME . '/vim/' . a:name
+	if !isdirectory(directory)
+		call mkdir(directory, 'p')
+	endif
+	exec 'set ' . a:option . '=' . directory . '//'
 endfun
 call s:SetGlobalFileStore('directory', 'swapfiles')
 call s:SetGlobalFileStore('backupdir', 'backups')
