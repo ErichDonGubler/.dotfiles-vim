@@ -1,5 +1,11 @@
+" Basic config/cache paths
 let $VIMHOME = $XDG_CONFIG_HOME . "/vim/"
 set rtp^=$VIMHOME
+let g:vim_cache_directory = $XDG_CACHE_HOME . '/vim'
+if has('gui_win32') " Windows gVim handles some cached assets differently because of paths
+	let g:vim_cache_directory = $XDG_CACHE_HOME . '/gvim'
+endif
+
 set encoding=utf-8
 set fileencoding=utf-8
 if !has('gui_running')
@@ -18,7 +24,7 @@ set clipboard=unnamed,unnamedplus
 nmap <silent> <leader>ve :vsp $VIMHOME<CR>
 nmap <silent> <leader>vs :so $MYVIMRC<CR>
 fun! s:SetGlobalFileStore(option, name)
-	let directory = $XDG_CACHE_HOME . '/vim/' . a:name
+	let directory = g:vim_cache_directory . '/' . a:name
 	if !isdirectory(directory)
 		call mkdir(directory, 'p')
 	endif
@@ -28,7 +34,7 @@ call s:SetGlobalFileStore('directory', 'swapfiles')
 call s:SetGlobalFileStore('backupdir', 'backups')
 call s:SetGlobalFileStore('undodir', 'undo')
 set undofile
-set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
+exec 'set viminfo+=n' . escape(g:vim_cache_directory, '\\') . '/viminfo'
 Plug 'djoshea/vim-autoread'
 if executable('tmux')
 	Plug 'tmux-plugins/vim-tmux-focus-events'
@@ -244,6 +250,7 @@ set sessionoptions+=tabpages " Remember tabs in session
 set sessionoptions+=globals
 Plug 'tpope/vim-obsession'
 Plug 'dhruvasagar/vim-prosession'
+let g:prosession_dir = g:vim_cache_directory . '/session'
 Plug 'gikmx/ctrlp-obsession' | Plug 'ctrlpvim/ctrlp.vim'
 map <Leader>P :CtrlPObsession<CR>
 
@@ -267,6 +274,7 @@ endif
 Plug 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_by_filename = 1
 let g:ctrlp_follow_symlinks = 1
+let g:ctrlp_cache_dir = g:vim_cache_directory . '/ctrlp'
 let g:ctrlp_extensions = ['buffertag', 'line', 'rtscript']
 if executable('fd')
 	let g:ctrlp_user_command = 'fd "" %s --color=never --follow'
