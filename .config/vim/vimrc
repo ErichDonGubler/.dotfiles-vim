@@ -590,6 +590,7 @@ augroup SublimeConfigFiles
 	au!
 	au BufNewFile,BufRead *.sublime-project,*.sublime-build,*.sublime-snippet setlocal filetype=json
 augroup END
+" Plug 'dag/vim-fish'
 
 fun! s:EscapeFileAsArg(file_name)
 	let escaped = expand(a:file_name)
