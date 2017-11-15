@@ -604,7 +604,7 @@ fun! s:EscapeCurrentFileAsArg()
 	return s:EscapeFileAsArg(expand('%:p'))
 endfun
 
-command! -nargs=0 OpenFileInSublime exec '!subl ' . s:EscapeCurrentFileAsArg() . ':' . line('.') . ':' . col('.')
+command! -nargs=0 OpenFileInSublime exec 'silent !subl ' . s:EscapeCurrentFileAsArg() . ':' . line('.') . ':' . col('.') | redraw!
 nmap <Leader>S :OpenFileInSublime<CR>
 
 if has('win32unix')
