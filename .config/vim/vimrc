@@ -447,27 +447,21 @@ hi! link Search Underlined
 map <Leader>h :%s/
 vmap <Leader>h :s/
 "   Better buffer search
-Plug 'haya14busa/incsearch.vim'
-let g:incsearch#auto_nohlsearch = 1
-map g/ <Plug>(incsearch-stay)
-map n  <Plug>(incsearch-nohl-n)zz
-map N  <Plug>(incsearch-nohl-N)zz
-map *  <Plug>(incsearch-nohl-*)
-map #  <Plug>(incsearch-nohl-#)
-map g* <Plug>(incsearch-nohl-g*)
-map g# <Plug>(incsearch-nohl-g#)
-Plug 'haya14busa/incsearch-easymotion.vim' | Plug 'easymotion/vim-easymotion' | Plug 'haya14busa/incsearch.vim'
-map <Leader><Leader>/ <Plug>(incsearch-easymotion-/)
-map <Leader><Leader>? <Plug>(incsearch-easymotion-?)
-map <Leader><Leader>g/ <Plug>(incsearch-easymotion-stay)
+Plug 'haya14busa/is.vim'
+Plug 'haya14busa/vim-asterisk'
+map *  <Plug>(asterisk-z*)<Plug>(is-nohl-1)
+map g* <Plug>(asterisk-gz*)<Plug>(is-nohl-1)
+map #  <Plug>(asterisk-z#)<Plug>(is-nohl-1)
+map g# <Plug>(asterisk-gz#)<Plug>(is-nohl-1)
+Plug 'osyo-manga/vim-anzu'
+map n <Plug>(is-nohl)<Plug>(anzu-n-with-echo)
+map N <Plug>(is-nohl)<Plug>(anzu-N-with-echo)
 Plug 'gelguy/cmd2.vim'
 let g:Cmd2_options = {
 	\ '_complete_ignorecase': 1,
 	\ '_complete_uniq_ignorecase': 0,
 	\ '_complete_fuzzy': 1,
 	\ }
-map / /<F12>
-map ? ?<F12>
 cmap <F12> <Plug>(Cmd2Suggest)
 "   Multi-file search
 Plug 'dyng/ctrlsf.vim'
