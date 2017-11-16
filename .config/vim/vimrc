@@ -51,13 +51,6 @@ map <Leader>Q :q!<CR>
 "   Get a Leader mapping for saves
 nmap <Leader>s :w<CR>
 command! -bang W :w!
-"   Handle some bindings that might not get caught by mintty
-map <Esc>[1;5D <C-Left>
-map <Esc>[1;5C <C-Right>
-map! <Esc>[1;5D <C-Left>
-map! <Esc>[1;5C <C-Right>
-map <Esc>[5;5~ <C-PageUp>
-map <Esc>[6;5~ <C-PageDown>
 "   Make Home go to the beginning of the indented line, not the line itself
 noremap <Home> ^
 "   Use Ctrl-Enter to go to a new line
@@ -138,13 +131,30 @@ endif
 set lazyredraw
 set fillchars=vert:\│
 set t_ut=
-if &term =~ '^screen'
-	execute "set <xUp>=\e[1;*A"
-	execute "set <xDown>=\e[1;*B"
-	execute "set <xRight>=\e[1;*C"
-	execute "set <xLeft>=\e[1;*D"
-	map <Esc>[B <Down>
-endif
+"      MinTTY bindings
+let s:mintty_keybind_modifiers_map = {
+	\ '2': 'S',
+	\ '3': 'M',
+	\ '4': 'M-S',
+	\ '5': 'C',
+	\ '6': "C-S"
+	\ }
+let s:mintty_keys_to_map = {
+	\ 'Up':       '1;%sA',
+	\ 'Down':     '1;%sB',
+	\ 'Right':    '1;%sC',
+	\ 'Left':     '1;%sD',
+	\ 'PageUp':   '5;%s~',
+	\ 'PageDown': '6;%s~',
+	\ }
+for [vim_keycode_name, mintty_key_escape_pattern] in items(s:mintty_keys_to_map)
+	for [escape_modifier_num, vim_modifier] in items(s:mintty_keybind_modifiers_map)
+		let subbed = substitute(mintty_key_escape_pattern, "%s", escape_modifier_num, '')
+		exec 'map <Esc>[' . subbed . ' <' . vim_modifier . '-' . vim_keycode_name . '>'
+	endfor
+endfor
+"        Bind to fix CtrlT?
+map <Esc>[B <Down>
 " Fix mouse stuff
 set mouse=a
 if !has('nvim')
