@@ -79,10 +79,13 @@ fun! s:append_to_line(sequence)
 	exec 'normal! A' . a:sequence
 	call cursor(l, c)
 endfun
-command! -nargs=0 AppendSemicolon call s:append_to_line(';')
-command! -nargs=0 AppendPeriod call s:append_to_line('.')
-nnoremap <Leader>; :AppendSemicolon<CR>
-nnoremap <Leader>. :AppendPeriod<CR>
+fun! s:derive_character_append(sequence, name)
+	exec 'command! -nargs=0 Append' . a:name . ' call s:append_to_line("' . a:sequence . '")'
+	exec 'nnoremap <Leader>' . a:sequence . ' :Append' . a:name . '<CR>'
+endfun
+call s:derive_character_append(';', 'Semicolon')
+call s:derive_character_append('.', 'Period')
+call s:derive_character_append(',', 'Comma')
 Plug 'ErichDonGubler/vim-file-browser-integration'
 nnoremap <Leader>e :SelectCurrentFile<CR>
 nnoremap <Leader>x :OpenCurrentFile<CR>
