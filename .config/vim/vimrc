@@ -237,7 +237,7 @@ set number
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
 fun! s:goyo_enter()
-	if executable('tmux')
+	if executable('tmux') && strlen($TMUX)
 		silent !tmux set status off
 		silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
 	endif
@@ -248,7 +248,7 @@ fun! s:goyo_enter()
 endfun
 
 fun! s:goyo_leave()
-	if executable('tmux')
+	if executable('tmux') && strlen($TMUX)
 		silent !tmux set status on
 		silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
 	endif
