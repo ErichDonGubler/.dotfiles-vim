@@ -62,6 +62,8 @@ map <Esc>[6;5~ <C-PageDown>
 noremap <Home> ^
 "   Use Ctrl-Enter to go to a new line
 imap <C-CR> <C-o>o
+imap <C-S-CR> <C-o>O
+" Xterm bindings
 imap  <C-o>o
 imap  <C-o>O
 "   Use Shift-Delete to delete the current line
