@@ -92,6 +92,7 @@ let g:plug_window = 'vnew'
 " Project configuration
 Plug 'embear/vim-localvimrc'
 let g:localvimrc_persistent = 1
+let g:localvimrc_persistence_file = g:vim_cache_directory . '/localvimrc_persistent'
 let g:localvimrc_sandbox = 0
 
 " UI functionalities
