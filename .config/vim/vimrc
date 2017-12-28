@@ -334,6 +334,7 @@ Plug 'dhruvasagar/vim-vinegar' | Plug 'scrooloose/nerdtree'
 "   Path/creation
 Plug 'EinfachToll/DidYouMean'
 Plug 'tpope/vim-eunuch'
+Plug 'qpkorr/vim-renamer'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'kopischke/vim-fetch'
 
