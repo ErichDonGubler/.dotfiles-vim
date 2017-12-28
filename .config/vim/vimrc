@@ -447,6 +447,10 @@ nnoremap <S-F5> "=strftime("%F %T")<CR>P
 inoremap <S-F5> <C-R>=strftime("%F %T")<CR>
 
 " Buffer navigation
+"   Selection behavior more consistent with other visual editors
+"   TODO: How can we make this change based on the direction we went from the selection?
+vnoremap <C-Left> B
+vnoremap <C-Right> E
 Plug 'tpope/vim-unimpaired'
 Plug 'easymotion/vim-easymotion'
 "   Search
