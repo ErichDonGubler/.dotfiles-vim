@@ -534,20 +534,23 @@ Plug 'honza/vim-snippets'
 " Expanded language support
 Plug 'gisphm/vim-gitignore'
 Plug 'plasticboy/vim-markdown'
-fun! s:SetRowLimit(length)
-	exec 'set colorcolumn=' . a:length
+set fo-=l
+fun! s:SetRowLimit(length, ...)
+	let rulers = a:length
+	let additional_rulers = a:000
+	if len(a:000)
+		let rulers = a:length . ',' . join(additional_rulers, ',')
+	endif
+	exec 'set colorcolumn=' . rulers
 	exec 'set tw=' . a:length - 1
 
 	if a:length
 		set fo+=t
-		set fo-=l
-		highlight OverLength ctermbg=red ctermfg=white guibg=#592928
-		exec 'match OverLength /\\%' . a:length + 1 . 'v.\\+/'
 	else
-		hi clear OverLength
+		set fo-=t
 	endif
 endfun
-command! -nargs=1 SetRowLimit call s:SetRowLimit(<args>)
+command! -nargs=+ SetRowLimit call s:SetRowLimit(<f-args>)
 augroup markdown
 	au!
 	au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
