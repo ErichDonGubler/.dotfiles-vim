@@ -321,6 +321,8 @@ endif
 
 " Files
 "   Navigation
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeTabsToggle' }
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
