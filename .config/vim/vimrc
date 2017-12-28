@@ -150,6 +150,7 @@ for [vim_keycode_name, mintty_key_escape_pattern] in items(s:mintty_keys_to_map)
 	for [escape_modifier_num, vim_modifier] in items(s:mintty_keybind_modifiers_map)
 		let subbed = substitute(mintty_key_escape_pattern, "%s", escape_modifier_num, '')
 		exec 'map <Esc>[' . subbed . ' <' . vim_modifier . '-' . vim_keycode_name . '>'
+		exec 'inoremap <Esc>[' . subbed . ' <' . vim_modifier . '-' . vim_keycode_name . '>'
 	endfor
 endfor
 "        Bind to fix CtrlT?
