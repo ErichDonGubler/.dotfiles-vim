@@ -356,6 +356,7 @@ let g:indentLine_setColors = 0
 let g:indentLine_char = '┆'
 let g:indentLine_setConceal = 0
 "     Splitjoin functionality
+set formatoptions+=j
 Plug 'AndrewRadev/splitjoin.vim'
 let g:splitjoin_split_mapping = ''
 nnoremap <Leader>S :SplitjoinSplit<CR>
