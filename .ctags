@@ -1,9 +1,11 @@
 --exclude=.git
 --exclude=.hg
+--exclude=.svn
 --exclude=log
 --exclude=tmp
 --exclude=bin
 --exclude=dist
+--exclude=target
 
 --langdef=css
 --langmap=css:.css
