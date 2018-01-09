@@ -17,7 +17,7 @@ Plug 'tweekmonster/startuptime.vim'
 Plug 'wakatime/vim-wakatime'
 
 " Bindings for vanilla vim
-set iskeyword-=.
+set iskeyword-=.#
 let maplocalleader = '|'
 set clipboard=unnamed,unnamedplus
 "   Vim config manipulation
