@@ -46,8 +46,9 @@ command! Qa :qa
 command! -bang Qa :qa!
 command! QA :qa
 command! -bang QA :qa!
-map <Leader>q :q<CR>
-map <Leader>Q :q!<CR>
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader>Q :q!<CR>
+nnoremap <Leader><Esc> :qa!<CR>
 "   Get a Leader mapping for saves
 nmap <Leader>s :w<CR>
 command! -bang W :w!
