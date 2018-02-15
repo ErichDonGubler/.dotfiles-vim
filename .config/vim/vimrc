@@ -332,6 +332,7 @@ map - <Plug>VinegarUp
 Plug 'EinfachToll/DidYouMean'
 Plug 'tpope/vim-eunuch'
 Plug 'qpkorr/vim-renamer'
+command! -nargs=0 Vidir Renamer
 Plug 'pbrisbin/vim-mkdir'
 Plug 'kopischke/vim-fetch'
 
