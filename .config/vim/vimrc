@@ -119,56 +119,43 @@ if has("gui_running")
 		set guifont=Inconsolata\ 14
 	endif
 else
-	let g:default_cursor_escape = "\<Esc>[ q"
-	let g:blinking_ibeam_cursor_escape = "\<Esc>[5 q"
-	let g:blinking_underline_cursor_escape = "\<Esc>[3 q"
-	let g:blinking_block_cursor_escape = "\<Esc>[1 q"
+	"    Fix terminal-specific settings so we get the correct colors and keybinds
+	Plug 'wincent/terminus'
 
-	let g:insert_cursor_escape = g:blinking_ibeam_cursor_escape
-	let g:replace_cursor_escape = g:blinking_underline_cursor_escape
-	let g:normal_cursor_escape = g:blinking_block_cursor_escape
+	set mouse=a
+	noremap <C-ScrollWheelDown> 3zl
+	noremap <C-ScrollWheelUp> 3zh
 
-	let &t_SI = g:insert_cursor_escape
-	let &t_SR = g:replace_cursor_escape
-	let &t_EI = g:normal_cursor_escape
+	" Force background drawing in truecolor terminals
+	set t_ut=
+
+	"      MinTTY bindings
+	let s:mintty_keybind_modifiers_map = {
+				\ '2': 'S',
+				\ '3': 'M',
+				\ '4': 'M-S',
+				\ '5': 'C',
+				\ '6': "C-S"
+				\ }
+	let s:mintty_keys_to_map = {
+				\ 'Up':       '1;%sA',
+				\ 'Down':     '1;%sB',
+				\ 'Right':    '1;%sC',
+				\ 'Left':     '1;%sD',
+				\ 'PageUp':   '5;%s~',
+				\ 'PageDown': '6;%s~',
+				\ }
+	for [vim_keycode_name, mintty_key_escape_pattern] in items(s:mintty_keys_to_map)
+		for [escape_modifier_num, vim_modifier] in items(s:mintty_keybind_modifiers_map)
+			let subbed = substitute(mintty_key_escape_pattern, "%s", escape_modifier_num, '')
+			exec 'map <Esc>[' . subbed . ' <' . vim_modifier . '-' . vim_keycode_name . '>'
+			exec 'inoremap <Esc>[' . subbed . ' <' . vim_modifier . '-' . vim_keycode_name . '>'
+		endfor
+	endfor
 endif
 
-"    Fix terminal-specific settings so we get the correct colors and keybinds
 set lazyredraw
 set fillchars=vert:\│
-set t_ut=
-"      MinTTY bindings
-let s:mintty_keybind_modifiers_map = {
-	\ '2': 'S',
-	\ '3': 'M',
-	\ '4': 'M-S',
-	\ '5': 'C',
-	\ '6': "C-S"
-	\ }
-let s:mintty_keys_to_map = {
-	\ 'Up':       '1;%sA',
-	\ 'Down':     '1;%sB',
-	\ 'Right':    '1;%sC',
-	\ 'Left':     '1;%sD',
-	\ 'PageUp':   '5;%s~',
-	\ 'PageDown': '6;%s~',
-	\ }
-for [vim_keycode_name, mintty_key_escape_pattern] in items(s:mintty_keys_to_map)
-	for [escape_modifier_num, vim_modifier] in items(s:mintty_keybind_modifiers_map)
-		let subbed = substitute(mintty_key_escape_pattern, "%s", escape_modifier_num, '')
-		exec 'map <Esc>[' . subbed . ' <' . vim_modifier . '-' . vim_keycode_name . '>'
-		exec 'inoremap <Esc>[' . subbed . ' <' . vim_modifier . '-' . vim_keycode_name . '>'
-	endfor
-endfor
-"        Bind to fix CtrlT?
-map <Esc>[B <Down>
-" Fix mouse stuff
-set mouse=a
-if !has('nvim')
-	set ttymouse=xterm2
-endif
-noremap <C-ScrollWheelDown> 3zl
-noremap <C-ScrollWheelUp> 3zh
 " Other view configuration
 command! -nargs=0 ResetScrollOff set scrolloff=5
 ResetScrollOff
