@@ -106,11 +106,17 @@ if has("gui_running")
 	set guioptions-=L " Don't show left-hand scrollbar
 	set mousemodel= " Don't use right-click menu
 
-	set guifont=Inconsolata\ 14
 	if has("gui_macvim")
 		set guifont=Menlo\ Regular:h14
 	elseif has("gui_win32")
 		set guifont=Consolas:h12:cANSI
+		Plug 'drmikehenry/vim-fontdetect'
+		fun! s:ConfigureWindowsFont()
+			set guifont=DejaVu\ Sans\ Mono:h11:cANSI
+		endfun
+		call plug#add_end_task(function('s:ConfigureWindowsFont'))
+	else
+		set guifont=Inconsolata\ 14
 	endif
 else
 	let g:default_cursor_escape = "\<Esc>[ q"
