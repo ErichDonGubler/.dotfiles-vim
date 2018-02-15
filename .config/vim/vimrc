@@ -12,7 +12,7 @@ if !has('gui_running')
 	set t_Co=256
 endif
 
-call plug#begin($XDG_CACHE_HOME . '/bundle')
+call plug#begin(g:vim_cache_directory . '/bundle')
 Plug 'tweekmonster/startuptime.vim'
 Plug 'wakatime/vim-wakatime'
 
