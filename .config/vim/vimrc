@@ -13,6 +13,7 @@ if !has('gui_running')
 endif
 
 call plug#begin(g:vim_cache_directory . '/bundle')
+Plug 's3rvac/AutoFenc'
 Plug 'tweekmonster/startuptime.vim'
 Plug 'wakatime/vim-wakatime'
 
