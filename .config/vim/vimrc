@@ -110,7 +110,9 @@ if has("gui_running")
 		set guifont=Consolas:h12:cANSI
 		Plug 'drmikehenry/vim-fontdetect'
 		fun! s:ConfigureWindowsFont()
-			set guifont=DejaVu\ Sans\ Mono:h11:cANSI
+			if fontdetect#hasFontFamily("Source Code Pro")
+				set guifont=Source\ Code\ Pro:h11:cANSI
+			endif
 		endfun
 		call plug#add_end_task(function('s:ConfigureWindowsFont'))
 	else
