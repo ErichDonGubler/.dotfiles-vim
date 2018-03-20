@@ -582,23 +582,24 @@ augroup END
 Plug 'rudes/vim-java'
 Plug 'pangloss/vim-javascript'
 let g:tagbar_type_javascript = {
-			\ 'ctagstype' : 'JavaScript',
-			\ 'kinds'     : [
-				\ 'o:objects',
-				\ 'c:classes',
-				\ 'f:functions',
-				\ 'a:arrays',
-				\ 'm:methods',
-				\ 'n:constants',
-				\ 's:strings'
-				\ ]
-			\ }
+	\ 'ctagstype' : 'JavaScript',
+	\ 'kinds'     : [
+		\ 'o:objects',
+		\ 'c:classes',
+		\ 'f:functions',
+		\ 'a:arrays',
+		\ 'm:methods',
+		\ 'n:constants',
+		\ 's:strings'
+		\ ]
+	\ }
 if executable('npm')
 	Plug 'mxw/vim-jsx'
 
 	Plug 'leafgarland/typescript-vim'
 	Plug 'posva/vim-vue', { 'do': 'npm i -g eslint eslint-plugin-vue' }
 endif
+Plug 'lepture/vim-jinja'
 Plug 'leafgarland/typescript-vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'python-mode/python-mode'
