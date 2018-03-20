@@ -522,6 +522,7 @@ if has('python')
 endif
 
 " Snippets
+Plug 'honza/vim-snippets'
 if has('python')
 	Plug 'SirVer/ultisnips'
 	let g:UltiSnipsExpandTrigger = '<Tab>'
@@ -532,7 +533,6 @@ else
 	let g:snipMate = get(g:, 'snipMate', {})
 	let g:snipMate.snippet_version = 1
 endif
-Plug 'honza/vim-snippets'
 
 " Expanded language support
 Plug 'gisphm/vim-gitignore'
