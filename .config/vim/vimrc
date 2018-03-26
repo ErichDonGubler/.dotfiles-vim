@@ -1,4 +1,4 @@
-" Basic config/cache paths
+﻿" Basic config/cache paths
 let $VIMHOME = $XDG_CONFIG_HOME . "/vim/"
 set rtp^=$VIMHOME
 let g:vim_cache_directory = $XDG_CACHE_HOME . '/vim'
@@ -196,7 +196,7 @@ let g:lightline = {
 Plug 'airblade/vim-gitgutter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 let g:NERDTreeIndicatorMapCustom = {
-			\ "Clean"     : "✔︎",
+			\ "Clean"     : "✓",
 			\ "Deleted"   : "✖",
 			\ "Dirty"     : "*",
 			\ "Ignored"   : "Ø",
