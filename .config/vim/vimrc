@@ -275,8 +275,12 @@ augroup END
 if executable('ctags')
 	Plug 'xolox/vim-easytags' | Plug 'xolox/vim-misc'
 	let g:easytags_async = 1
+	let g:easytags_auto_highlight = 0
 	let g:easytags_dynamic_files = 2
 	let g:easytags_resolve_links = 1
+	if has('python')
+		let g:easytags_python_enabled = 1
+	endif
 	Plug 'majutsushi/tagbar' | Plug 'xolox/vim-easytags'
 	nmap <Leader>t :TagbarToggle<CR>
 	let g:airline#extensions#tagbar#enabled = 0
