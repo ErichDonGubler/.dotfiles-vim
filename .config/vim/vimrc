@@ -64,6 +64,8 @@ nmap <S-Del> dd
 imap <S-Del> <C-o>dd
 "     Here, the bind only deletes the content of the lines, not the lines themselves
 vmap <S-Del> ^o$d
+noremap <S-Up> <Nop>
+noremap <S-Down> <Nop>
 "   Add some common line-ending shortcuts
 fun! s:append_to_line(sequence)
 	let l = line(".")
