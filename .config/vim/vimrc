@@ -1,4 +1,5 @@
-﻿" Basic config/cache paths
+﻿set nocp
+" Basic config/cache paths
 let $VIMHOME = $XDG_CONFIG_HOME . "/vim/"
 set rtp^=$VIMHOME
 let g:vim_cache_directory = $XDG_CACHE_HOME . '/vim'
