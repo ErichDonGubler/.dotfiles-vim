@@ -336,6 +336,7 @@ let g:loaded_netrwPlugin = 1
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeTabsToggle', '<Plug>VinegarUp'] }
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
+let g:NERDTreeBookmarksFile = g:vim_cache_directory . '/NERDTreeBookmarks'
 map <Leader>K :NERDTreeFind<CR>
 Plug 'jistr/vim-nerdtree-tabs'
 let g:nerdtree_tabs_open_on_gui_startup = 2
