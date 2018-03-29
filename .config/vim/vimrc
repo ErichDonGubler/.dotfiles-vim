@@ -600,11 +600,12 @@ let g:tagbar_type_javascript = {
 		\ ]
 	\ }
 if executable('npm')
-	Plug 'mxw/vim-jsx'
-
-	Plug 'leafgarland/typescript-vim'
 	Plug 'posva/vim-vue', { 'do': 'npm i -g eslint eslint-plugin-vue' }
+else
+	Plug 'posva/vim-vue'
 endif
+Plug 'mxw/vim-jsx'
+Plug 'leafgarland/typescript-vim'
 Plug 'lepture/vim-jinja'
 Plug 'leafgarland/typescript-vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
