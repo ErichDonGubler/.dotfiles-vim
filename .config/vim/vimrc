@@ -180,6 +180,12 @@ fun! s:ConfigureColors()
 	hi! link pythonBuiltInType Constant
 
 	hi! link xmlProcessingDelim Comment
+
+	hi! link yamlFlowIndicator Special
+
+	hi! link zshDeref SublimeAqua
+	hi! link zshOption Special
+	hi! link zshTypes SublimeType
 endfun
 call plug#add_end_task(function('s:ConfigureColors'))
 
