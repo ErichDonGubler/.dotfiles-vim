@@ -38,6 +38,7 @@ call s:SetGlobalFileStore('undodir', 'undo')
 set undofile
 exec 'set viminfo+=n' . escape(g:vim_cache_directory, '\\') . '/viminfo'
 Plug 'djoshea/vim-autoread'
+Plug 'tmux-plugins/vim-tmux-focus-events'
 "   Alias Q to do what we really want
 command! Q :q
 command! -bang Q :q!
