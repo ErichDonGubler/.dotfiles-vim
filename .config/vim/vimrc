@@ -374,6 +374,8 @@ let g:indentLine_setConceal = 0
 "     Splitjoin functionality
 set formatoptions+=j
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'FooSoft/vim-argwrap'
+nnoremap <silent> <leader>] :ArgWrap<CR>
 "     Whitespace character viewing
 set list
 fun! EnableShowWhitespace(...)
