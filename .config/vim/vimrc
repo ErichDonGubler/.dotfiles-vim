@@ -167,7 +167,7 @@ ResetScrollOff
 Plug 'ErichDonGubler/vim-sublime-monokai'
 let g:monokai_term_italic = 1
 fun! s:ConfigureColors()
-	colorscheme monokai
+	colorscheme sublimemonokai
 	call g:SublimeMonokaiHighlight('Todo', { 'fg': g:sublime_monokai_orange,   'format': 'bold,italic' }) " TODO: What the crap, man!
 	call g:SublimeMonokaiHighlight('MatchTag', { 'format': 'reverse,standout' })
 
