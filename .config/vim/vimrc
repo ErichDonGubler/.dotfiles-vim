@@ -421,6 +421,7 @@ nmap ga <Plug>(EasyAlign)
 "   Selection
 nmap <Leader>v <C-v>^o$
 "   Generic textobjs
+Plug 'tommcdo/vim-ninja-feet'
 Plug 'wellle/targets.vim'
 Plug 'glts/vim-textobj-comment'
 Plug 'kana/vim-textobj-entire'
