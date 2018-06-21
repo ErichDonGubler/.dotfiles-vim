@@ -17,6 +17,10 @@ call plug#begin(g:vim_cache_directory . '/bundle')
 Plug 's3rvac/AutoFenc'
 Plug 'tweekmonster/startuptime.vim'
 Plug 'wakatime/vim-wakatime'
+let g:wakatime_dir = $XDG_CONFIG_HOME . '/wakatime'
+if !isdirectory(g:wakatime_dir)
+	call mkdir(g:wakatime_dir)
+endif
 
 " Bindings for vanilla vim
 set iskeyword-=.#
