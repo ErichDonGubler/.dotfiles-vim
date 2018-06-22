@@ -160,6 +160,14 @@ else
 			exec 'inoremap <Esc>[' . subbed . ' <' . vim_modifier . '-' . vim_keycode_name . '>'
 		endfor
 	endfor
+
+	"      rvxt bindings
+	map <Esc>Oa <C-Up>
+	map <Esc>Ob <C-Down>
+	map <Esc>Oc <C-Right>
+	map <Esc>Od <C-Left>
+	map <Esc>[5^ <C-PageUp>
+	map <Esc>[6^ <C-PageDown>
 endif
 
 set lazyredraw
