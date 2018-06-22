@@ -177,7 +177,7 @@ command! -nargs=0 ResetScrollOff set scrolloff=5
 ResetScrollOff
 
 Plug 'ErichDonGubler/vim-sublime-monokai'
-let g:monokai_term_italic = 1
+let g:sublimemonokai_term_italic = 1
 fun! s:ConfigureColors()
 	colorscheme sublimemonokai
 	call g:SublimeMonokaiHighlight('Todo', { 'fg': g:sublimemonokai_orange,   'format': 'bold,italic' }) " TODO: What the crap, man!
