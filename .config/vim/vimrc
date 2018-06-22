@@ -192,6 +192,9 @@ fun! s:ConfigureColors()
 	hi! link pythonBuiltInObj Constant
 	hi! link pythonBuiltInType Constant
 
+	hi! link rustEnumVariant Special
+	hi! link rustLifetime Special
+
 	hi! link xmlProcessingDelim Comment
 
 	hi! link yamlFlowIndicator Special
