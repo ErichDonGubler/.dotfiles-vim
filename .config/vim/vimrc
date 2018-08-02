@@ -355,6 +355,28 @@ if has('python')
 	let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 endif
 
+" Advanced bookmarks
+Plug 'MattesGroeger/vim-bookmarks'
+fun! s:ConfigureBookmarkColors()
+	hi! link BookmarkSign SublimeAqua
+	hi! link BookmarkAnnotationSign SublimeYellow
+endfun
+call plug#add_end_task(function('s:ConfigureBookmarkColors'))
+let g:bookmark_annotation_sign = '➜'
+let g:bookmark_auto_save_file = g:vim_cache_directory . '/bookmarks'
+let g:bookmark_no_default_key_mappings = 1
+let g:bookmark_sign = '➜'
+nmap <Leader>mm <Plug>BookmarkToggle
+nmap <Leader>mi <Plug>BookmarkAnnotate
+nmap <Leader>ma <Plug>BookmarkShowAll
+nmap <Leader>mj <Plug>BookmarkNext
+nmap <Leader>mk <Plug>BookmarkPrev
+nmap <Leader>mc <Plug>BookmarkClear
+nmap <Leader>mx <Plug>BookmarkClearAll
+nmap [m <Plug>BookmarkMoveUp
+nmap ]m <Plug>BookmarkMoveDown
+nmap <Leader>mg <Plug>BookmarkMoveToLine
+
 " Files
 "   Navigation
 let g:loaded_netrw = 1
