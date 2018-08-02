@@ -492,8 +492,12 @@ endif
 "   Other nice highlighting plugins
 Plug 'unblevable/quick-scope'
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
-Plug 'dominikduda/vim_current_word'
-let g:vim_current_word#highlight_only_in_focused_window = 1
+Plug 'RRethy/vim-illuminate'
+fun! s:ConfigureIlluminate()
+	hi! link illuminatedWord Underlined
+endf
+call plug#add_end_task(function('s:ConfigureIlluminate'))
+
 hi link CurrentWord Underlined
 "    Misc
 Plug 'cohama/lexima.vim'
