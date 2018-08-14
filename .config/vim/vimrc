@@ -468,27 +468,40 @@ Plug 'peterrincker/vim-argumentative'
 "   Prose
 Plug 'reedes/vim-textobj-quote'
 "   HTML/XML textobjs
-Plug 'mattn/emmet-vim'
-Plug 'whatyouhide/vim-textobj-xmlattr' | Plug 'kana/vim-textobj-user'
-Plug 'thalesmello/vim-textobj-methodcall' | Plug 'kana/vim-textobj-user'
 Plug 'alvan/vim-closetag'
-"   Nice highlighting plugins
 Plug 'geoffharcourt/vim-coloresque'
+Plug 'idanarye/breeze.vim'
+nmap <LocalLeader><LocalLeader>k :BreezeJumpB<CR>
+nmap <LocalLeader><LocalLeader>j :BreezeJumpF<CR>
+nmap <LocalLeader>j :BreezeNextSibling<CR>
+nmap <LocalLeader>k :BreezePrevSibling<CR>
+nmap <LocalLeader>J :BreezeLastSibling<CR>
+nmap <LocalLeader>K :BreezeFirstSibling<CR>
+nmap <LocalLeader>l :BreezeFirstChild<CR>
+nmap <LocalLeader>L :BreezeLastChild<CR>
+nmap <LocalLeader>h :BreezeParent<CR>
+nmap <LocalLeader>% :BreezeMatchTag<CR>
+Plug 'mattn/emmet-vim'
+Plug 'whatyouhide/vim-textobj-xmlattr'
 if has('python')
 	Plug 'Valloric/MatchTagAlways'
+	let g:mta_use_matchparen_group = 0
+	let g:mta_set_default_matchtag_color = 0
+	let g:breeze_highlight_curr_element = 0
 endif
+"   Other nice highlighting plugins
 Plug 'unblevable/quick-scope'
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 Plug 'dominikduda/vim_current_word'
 let g:vim_current_word#highlight_only_in_focused_window = 1
 hi link CurrentWord Underlined
 "    Misc
-Plug 'terryma/vim-multiple-cursors'
 Plug 'cohama/lexima.vim'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-surround'
+Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
 "     Datetime
 nnoremap <F5> "=strftime("%F")<CR>P
 inoremap <F5> <C-R>=strftime("%F")<CR>
