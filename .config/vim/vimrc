@@ -538,9 +538,15 @@ let g:ctrlsf_case_sensitive = 'smart'
 nnoremap <Leader>f :CtrlSFToggle<CR>
 if executable('rg')
 	let g:ctrlsf_ackprg = 'rg'
-	let g:ctrlsf_extra_backend_args = {
-		\ 'rg': '--follow'
-		\ }
+	if has('win32unix')
+		let g:ctrlsf_extra_backend_args = {
+			\ 'rg': '--follow'
+			\ }
+	else
+		let g:ctrlsf_extra_backend_args = {
+			\ 'rg': '--follow --path-separator="/"'
+			\ }
+	endif
 elseif executable('grep')
 	let g:ctrlsf_ackprg = 'grep'
 endif
