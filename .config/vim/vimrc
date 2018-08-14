@@ -393,6 +393,7 @@ Plug 'Yggdroot/indentline'
 let g:indentLine_setColors = 0
 let g:indentLine_char = '┆'
 let g:indentLine_setConceal = 0
+Plug 'rhlobo/vim-super-retab'
 "     Splitjoin functionality
 set formatoptions+=j
 Plug 'AndrewRadev/splitjoin.vim'
