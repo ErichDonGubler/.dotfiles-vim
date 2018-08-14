@@ -432,9 +432,12 @@ endfun
 call plug#add_end_task(function('s:BindWordWrapOptions'))
 "     Trim trailing whitespace on save
 Plug 'ntpeters/vim-better-whitespace'
+let g:strip_whitespace_on_save=1
 hi! link ExtraWhitespace Error
 augroup StripWhitespace
-	autocmd BufEnter * EnableStripWhitespaceOnSave
+	au!
+	au BufNewFile,BufRead *.diff DisableStripWhitespaceOnSave
+	au BufNewFile,BufRead *.patch DisableStripWhitespaceOnSave
 augroup END
 "   Alignment
 Plug 'junegunn/vim-easy-align'
