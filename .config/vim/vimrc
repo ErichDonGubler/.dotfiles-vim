@@ -224,6 +224,9 @@ let g:lightline = {
 
 "   Git integration
 Plug 'airblade/vim-gitgutter'
+if executable('rg')
+	let g:gitgutter_grep = 'rg'
+endif
 Plug 'Xuyuanp/nerdtree-git-plugin'
 let g:NERDTreeIndicatorMapCustom = {
 			\ "Clean"     : "✓",
