@@ -454,6 +454,8 @@ Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-function'
 Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-line'
+Plug 'kana/vim-textobj-user'
+Plug 'thalesmello/vim-textobj-methodcall'
 "   Special integration for the Internet
 Plug 'mattn/vim-textobj-url'
 Plug 'tyru/open-browser.vim'
