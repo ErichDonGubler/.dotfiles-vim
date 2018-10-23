@@ -128,11 +128,11 @@ if has("gui_running")
 	if has("gui_macvim")
 		set guifont=Menlo\ Regular:h14
 	elseif has("gui_win32")
-		set guifont=Consolas:h12:cANSI
+		set guifont=Consolas:h12
 		Plug 'drmikehenry/vim-fontdetect'
 		fun! s:ConfigureWindowsFont()
 			if fontdetect#hasFontFamily("Source Code Pro")
-				set guifont=Source\ Code\ Pro:h11:cANSI
+				set guifont=Source\ Code\ Pro:h11
 			endif
 		endfun
 		call plug#add_end_task(function('s:ConfigureWindowsFont'))
