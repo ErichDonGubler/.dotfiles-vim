@@ -695,6 +695,12 @@ let g:go_highlight_fields = 1
 let g:go_highlight_generate_tags = 1
 let g:go_highlight_variable_assignments = 1
 let g:go_highlight_variable_declarations = 1
+Plug 'StanAngeloff/php.vim'
+let g:php_var_selector_is_identifier = 1
+fun! s:ConfigurePhpColors()
+	hi! link phpMemberSelector Keyword
+endfun
+call plug#add_end_task(function('s:ConfigurePhpColors'))
 
 fun! s:EscapeFileAsArg(file_name)
 	let escaped = expand(a:file_name)
