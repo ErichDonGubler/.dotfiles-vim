@@ -722,7 +722,10 @@ if has('win32unix')
 elseif has('win32')
 	command! -nargs=0 OpenFileInVisualStudio exec 'silent !devenv /edit ' . s:EscapeCurrentFileAsArg() . ' /command "' . line('.') . '"' | redraw!
 endif
+
 nmap <Leader>V :OpenFileInVisualStudio<CR>
+
+Plug 'fidian/hexmode'
 
 call plug#end()
 
