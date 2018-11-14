@@ -599,6 +599,7 @@ else
 endif
 
 " Expanded language support
+Plug 'vitalk/vim-shebang'
 Plug 'gisphm/vim-gitignore'
 Plug 'plasticboy/vim-markdown'
 set fo-=l
@@ -634,6 +635,10 @@ let g:tagbar_type_markdown = {
 			\ }
 Plug 'rust-lang/rust.vim'
 let g:syntastic_rust_checkers = ['rustc']
+fun! s:AddCargoScriptShebang()
+	AddShebangPattern! rust ^#!.*/bin/env\s\+run-cargo-script\>
+endfun
+call plug#add_end_task(function('s:AddCargoScriptShebang'))
 Plug 'OrangeT/vim-csharp'
 Plug 'cespare/vim-toml'
 Plug 'jceb/vim-orgmode' | Plug 'tpope/vim-speeddating'
