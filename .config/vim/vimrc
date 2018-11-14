@@ -23,12 +23,17 @@ if !has('gui_running')
 endif
 
 call plug#begin(g:vim_cache_directory . '/bundle')
+
 Plug 's3rvac/AutoFenc'
 Plug 'tweekmonster/startuptime.vim'
 Plug 'wakatime/vim-wakatime'
-let g:wakatime_dir = $XDG_CONFIG_HOME . '/wakatime'
-if !isdirectory(g:wakatime_dir)
-	call mkdir(g:wakatime_dir)
+" The Wakatime plugin doesn't play nicely with env vars that need further
+" expansion, so let's just use the known location here.
+if has('win32') && !has('win32unix') && $WAKATIME_HOME =~ '%'
+	let $WAKATIME_HOME = substitute(system('echo ' . $WAKATIME_HOME), '\s\+\n\+$', '', '')
+endif
+if !isdirectory($WAKATIME_HOME)
+	call mkdir($WAKATIME_HOME, "p")
 endif
 
 " Bindings for vanilla vim
