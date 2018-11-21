@@ -524,10 +524,10 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 "     Datetime
-nnoremap <F5> "=strftime("%F")<CR>P
-inoremap <F5> <C-R>=strftime("%F")<CR>
-nnoremap <S-F5> "=strftime("%F %T")<CR>P
-inoremap <S-F5> <C-R>=strftime("%F %T")<CR>
+nnoremap <F5> "=strftime("%Y-%m-%d")<CR>P
+inoremap <F5> <C-R>=strftime("%Y-%m-%d")<CR>
+nnoremap <S-F5> "=strftime("%Y-%m-%d %H:%M:%S")<CR>P
+inoremap <S-F5> <C-R>=strftime("%Y-%m-%d %H:%M:%S")<CR>
 
 " Buffer navigation
 "   Selection behavior more consistent with other visual editors
