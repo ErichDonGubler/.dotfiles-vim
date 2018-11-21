@@ -635,8 +635,8 @@ command! -nargs=+ SetRowLimit call s:SetRowLimit(<f-args>)
 augroup markdown
 	au!
 	au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
-	au BufNewFile,BufRead *.md,*.markdown SetRowLimit 80
-	au BufNewFile,BufRead *.md,*.markdown EnableWordWrap
+	au FileType markdown,ghmarkdown SetRowLimit 80
+	au FileType markdown,ghmarkdown EnableWordWrap
 augroup END
 let g:tagbar_type_markdown = {
 			\ 'ctagstype' : 'markdown',
