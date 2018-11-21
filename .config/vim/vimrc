@@ -700,6 +700,7 @@ augroup SublimeConfigFiles
 	au BufNewFile,BufRead *.sublime-project,*.sublime-build,*.sublime-snippet setlocal filetype=json
 augroup END
 " Plug 'dag/vim-fish'
+Plug 'wannesm/wmgraphviz.vim'
 Plug 'fatih/vim-go'
 let g:go_highlight_format_strings = 1
 let g:go_highlight_function_arguments = 1
