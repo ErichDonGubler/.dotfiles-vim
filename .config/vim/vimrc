@@ -211,6 +211,8 @@ fun! s:ConfigureColors()
 	hi! link diffLine           SublimeAqua
 	hi! link diffNewFile        SublimeBrightWhite
 	hi! link dotBrackEncl       Keyword
+	hi! link goExtraType        Special
+	hi! link goTypeConstructor  SublimeType
 	hi! link jsRegexpCharClass  Special
 	hi! link jsRegexpBackRef    SpecialChar
 	hi! link jsRegexpMod        SpecialChar
