@@ -631,6 +631,10 @@ fun! s:SetRowLimit(length, ...)
 		set fo-=t
 	endif
 endfun
+augroup DefaultRowLimit
+	au!
+	au FileType * SetRowLimit 120
+augroup END
 command! -nargs=+ SetRowLimit call s:SetRowLimit(<f-args>)
 augroup markdown
 	au!
