@@ -340,7 +340,6 @@ if executable('ctags')
 	endif
 	Plug 'majutsushi/tagbar' | Plug 'xolox/vim-easytags'
 	nmap <Leader>t :TagbarToggle<CR>
-	let g:airline#extensions#tagbar#enabled = 0
 endif
 
 " Fuzzy matching facilities
