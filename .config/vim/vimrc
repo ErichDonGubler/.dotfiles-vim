@@ -204,6 +204,12 @@ fun! s:ConfigureColors()
 	call g:SublimeMonokaiHighlight('MatchTag', { 'format': 'reverse' })
 	call g:SublimeMonokaiHighlight('Todo', { 'fg': g:sublimemonokai_orange,   'format': 'bold,italic' }) " TODO: What the crap, man!
 
+	" FIXME: Apparently "new" file and file are mixed up for the diff
+	" highlightlight groups. Ew!
+	" FIXME: There's no distinguishing between the second file and the `diff`
+	" line. Ew!
+	hi! link diffLine           SublimeAqua
+	hi! link diffNewFile        SublimeBrightWhite
 	hi! link dotBrackEncl       Keyword
 	hi! link jsRegexpCharClass  Special
 	hi! link jsRegexpBackRef    SpecialChar
