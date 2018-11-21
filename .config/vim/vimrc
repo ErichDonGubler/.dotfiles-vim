@@ -686,6 +686,7 @@ Plug 'lepture/vim-jinja'
 Plug 'leafgarland/typescript-vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'python-mode/python-mode'
+let g:pymode_rope = 0
 augroup Batch
 	au!
 	autocmd FileType dosbatch setlocal commentstring=REM\ %s
