@@ -249,6 +249,7 @@ Plug 'airblade/vim-gitgutter'
 if executable('rg')
 	let g:gitgutter_grep = 'rg ' . s:ripgrep_platform_args
 endif
+Plug 'jreybert/vimagit'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 let g:NERDTreeIndicatorMapCustom = {
 			\ "Clean"     : "✓",
