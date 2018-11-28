@@ -380,13 +380,19 @@ endif
 "   Navigation
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
-Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeTabsToggle', '<Plug>VinegarUp'] }
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeTabsToggle', '<Plug>VinegarUp'] }
+fun! s:wat()
+	if len(finddir(@%))
+		NERDTreeToggle
+	endif
+endfun
+au VimEnter * call s:wat()
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '-'
 let g:NERDTreeBookmarksFile = g:vim_cache_directory . '/NERDTreeBookmarks'
 map <Leader>K :NERDTreeFind<CR>
-Plug 'jistr/vim-nerdtree-tabs'
-let g:nerdtree_tabs_open_on_gui_startup = 2
+Plug 'jistr/vim-nerdtree-tabs', { 'on': ['NERDTreeToggle', 'NERDTreeTabsToggle', '<Plug>VinegarUp'] }
+let g:nerdtree_tabs_open_on_gui_startup = 0
 map <Leader>k :NERDTreeTabsToggle<CR>
 Plug 'ErichDonGubler/nerdtree-plugin-open-in-file-browser', { 'on': ['NERDTreeTabsToggle', '<Plug>VinegarUp']  }
 Plug 'ErichDonGubler/nerdtree-ctrlp-root' | Plug 'ctrlpvim/ctrlp.vim'
