@@ -41,7 +41,7 @@ set iskeyword-=.#
 let maplocalleader = '|'
 set clipboard=unnamed,unnamedplus
 "   Vim config manipulation
-nmap <silent> <leader>ve :vsp $VIMHOME<CR>
+nmap <silent> <leader>ve :vsp $VIMHOME/vimrc<CR>
 nmap <silent> <leader>vs :so $MYVIMRC<CR>
 fun! s:SetGlobalFileStore(option, name)
 	let directory = g:vim_cache_directory . '/' . a:name
