@@ -652,9 +652,21 @@ let g:tagbar_type_markdown = {
 	\ }
 Plug 'rust-lang/rust.vim'
 augroup rust
-	autocmd FileType rust nnoremap <LocalLeader>t :RustTest<CR>
-	autocmd FileType rust nnoremap <LocalLeader>p :RustPlay<CR>
-	autocmd FileType rust nnoremap <LocalLeader>f :RustFmt<CR>
+	au!
+	au FileType rust nnoremap <LocalLeader>b :Cargo build<CR>
+	au FileType rust nnoremap <LocalLeader>B :Cargo build --release<CR>
+	au FileType rust nnoremap <LocalLeader>c :Cargo check<CR>
+	au FileType rust nnoremap <LocalLeader>d :Cargo doc<CR>
+	au FileType rust nnoremap <LocalLeader>D :Cargo doc --open<CR>
+	au FileType rust nnoremap <LocalLeader>F :Cargo fmt<CR>
+	au FileType rust nnoremap <LocalLeader>f :RustFmt<CR>
+	au FileType rust nnoremap <LocalLeader><LocalLeader>o ysiw>iOption<Esc>
+	au FileType rust nnoremap <LocalLeader>p :RustPlay<CR>
+	au FileType rust nnoremap <LocalLeader>r :Cargo run<CR>
+	au FileType rust nnoremap <LocalLeader>R :Cargo run --release<CR>
+	au FileType rust nnoremap <LocalLeader>s :Cargo script "%"<CR>
+	au FileType rust nnoremap <LocalLeader>t :RustTest<CR>
+	au FileType rust nnoremap <LocalLeader>T :Cargo test<CR>
 augroup end
 let g:syntastic_rust_checkers = ['rustc']
 fun! s:AddCargoScriptShebang()
