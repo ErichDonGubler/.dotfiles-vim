@@ -654,26 +654,28 @@ let g:tagbar_type_markdown = {
 		\ ]
 	\ }
 Plug 'rust-lang/rust.vim'
-augroup rust
-	au!
-	au FileType rust nnoremap <LocalLeader>b :Cargo build<CR>
-	au FileType rust nnoremap <LocalLeader>B :Cargo build --release<CR>
-	au FileType rust nnoremap <LocalLeader>c :Cargo check<CR>
-	au FileType rust nnoremap <LocalLeader>d :Cargo doc<CR>
-	au FileType rust nnoremap <LocalLeader>D :Cargo doc --open<CR>
-	au FileType rust nnoremap <LocalLeader>F :Cargo fmt<CR>
-	au FileType rust nnoremap <LocalLeader>f :RustFmt<CR>
-	au FileType rust nnoremap <LocalLeader><LocalLeader>o ysiw>iOption<Esc>
-	au FileType rust nnoremap <LocalLeader>p :RustPlay<CR>
-	au FileType rust nnoremap <LocalLeader>r :Cargo run<CR>
-	au FileType rust nnoremap <LocalLeader>R :Cargo run --release<CR>
-	au FileType rust nnoremap <LocalLeader>s :Cargo script "%"<CR>
-	au FileType rust nnoremap <LocalLeader>t :RustTest<CR>
-	au FileType rust nnoremap <LocalLeader>T :Cargo test<CR>
+fun s:ConfigureRust()
+	nnoremap <LocalLeader>b :Cargo build<CR>
+	nnoremap <LocalLeader>B :Cargo build --release<CR>
+	nnoremap <LocalLeader>c :Cargo check<CR>
+	nnoremap <LocalLeader>d :Cargo doc<CR>
+	nnoremap <LocalLeader>D :Cargo doc --open<CR>
+	nnoremap <LocalLeader>F :Cargo fmt<CR>
+	nnoremap <LocalLeader>f :RustFmt<CR>
+	nnoremap <LocalLeader>p :RustPlay<CR>
+	nnoremap <LocalLeader>r :Cargo run<CR>
+	nnoremap <LocalLeader>R :Cargo run --release<CR>
+	nnoremap <LocalLeader>s :Cargo script "%"<CR>
+	nnoremap <LocalLeader>t :RustTest<CR>
+	nnoremap <LocalLeader>T :Cargo test<CR>
 	au FileType rust let b:surround_111 = "Some(\r)"
 	au FileType rust let b:surround_114 = "Ok(\r)"
 	au FileType rust let b:surround_79 = "Option<\r>"
 	au FileType rust let b:surround_82 = "Result<\r>"
+endf
+augroup rust
+	au!
+	au FileType rust call s:ConfigureRust()
 augroup end
 let g:syntastic_rust_checkers = ['rustc']
 fun! s:AddCargoScriptShebang()
