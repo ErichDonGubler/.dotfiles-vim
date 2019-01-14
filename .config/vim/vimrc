@@ -666,6 +666,10 @@ augroup rust
 	au FileType rust nnoremap <LocalLeader>s :Cargo script "%"<CR>
 	au FileType rust nnoremap <LocalLeader>t :RustTest<CR>
 	au FileType rust nnoremap <LocalLeader>T :Cargo test<CR>
+	au FileType rust let b:surround_111 = "Some(\r)"
+	au FileType rust let b:surround_114 = "Ok(\r)"
+	au FileType rust let b:surround_79 = "Option<\r>"
+	au FileType rust let b:surround_82 = "Result<\r>"
 augroup end
 let g:syntastic_rust_checkers = ['rustc']
 fun! s:AddCargoScriptShebang()
