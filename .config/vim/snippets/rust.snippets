@@ -28,3 +28,51 @@ snippet Option
 	Option<${1:${VISUAL:Data}}>
 snippet s
 	Some(${1:${VISUAL:data}})
+snippet parsestruct
+	#[derive(Debug)]
+	struct Raw${1:Thing}(pub ${2:Primitive});
+
+	#[derive(Debug)]
+	struct $1 {
+		// TODO
+		${3:${VISUAL:data: Data}},
+	}
+
+	#[derive(Debug)]
+	enum $1ParseError {
+		${5:// variants}
+	}
+
+	impl TryFrom<Raw$1> for $1 {
+		type Err = $1ParseError;
+
+		fn try_from(Raw$1($2): Raw$1) -> Result<$1, $1ParseError> {
+			use self::$1ParseError;
+
+			${4:// statements}
+		}
+	}
+snippet parseprim
+	#[derive(Debug)]
+	struct Raw${1:Thing}(pub ${2:Primitive});
+
+	#[derive(Debug)]
+	struct $1 {
+		// TODO
+		${3:${VISUAL:data: Data}},
+	}
+
+	#[derive(Debug)]
+	enum $1ParseError {
+		${5:// variants}
+	}
+
+	impl TryFrom<Raw$1> for $1 {
+		type Err = $1ParseError;
+
+		fn try_from(Raw$1($2): Raw$1) -> Result<$1, $1ParseError> {
+			use self::$1ParseError;
+
+			${4:// statements}
+		}
+	}
