@@ -587,6 +587,10 @@ map <Leader>B :CtrlPCompiler<CR>
 " Linting
 if has('python')
 	Plug 'w0rp/ale'
+	augroup CppAleConfig
+		au!
+		au FileType c,cpp let b:ale_enabled = 0
+	augroup END
 else
 	Plug 'vim-syntastic/syntastic'
 	let g:syntastic_always_populate_loc_list = 1
