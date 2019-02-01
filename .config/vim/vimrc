@@ -685,7 +685,9 @@ augroup orgmode
 	 au!
 	 au FileType text,org :EnableWordWrap
 augroup END
-Plug 'rudes/vim-java'
+let java_comment_strings=1
+let java_highlight_functions=1
+let java_highlight_java_lang_ids=1
 Plug 'pangloss/vim-javascript'
 let g:tagbar_type_javascript = {
 	\ 'ctagstype' : 'JavaScript',
