@@ -670,8 +670,10 @@ fun s:ConfigureRust()
 	nnoremap <LocalLeader>T :Cargo test<CR>
 	au FileType rust let b:surround_111 = "Some(\r)"
 	au FileType rust let b:surround_114 = "Ok(\r)"
+	au FileType rust let b:surround_66 = "Box<\r>"
 	au FileType rust let b:surround_79 = "Option<\r>"
 	au FileType rust let b:surround_82 = "Result<\r>"
+	au FileType rust let b:surround_98 = "Box::new(\r)"
 endf
 augroup rust
 	au!
