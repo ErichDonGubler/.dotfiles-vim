@@ -1,0 +1,29 @@
+" vim: filetype=vim
+sanitize tridactyllocal tridactylsync
+
+set newtab about:blank
+set smoothscroll true
+
+bind ,<Space> nohlsearch
+bind / fillcmdline find
+bind ? fillcmdline find -?
+bind N findnext -1
+bind n findnext 1
+set findcase sensitive
+unbind <C-f>
+
+bind j scrollline 5
+bind k scrollline -5
+
+bind x tabclose
+
+autocmd DocStart calendar.google.com mode ignore
+autocmd DocStart drive.google.com mode ignore
+autocmd DocStart mail.google.com mode ignore
+autocmd DocStart octobox.io mode ignore
+autocmd DocStart outlook.office365.com mode ignore
+autocmd DocStart www.rememberthemilk.com mode ignore
+autocmd DocStart www.youtube.com mode ignore
+autocmd DocStart zenkit.com mode ignore
+
+guiset_quiet hoverlink right

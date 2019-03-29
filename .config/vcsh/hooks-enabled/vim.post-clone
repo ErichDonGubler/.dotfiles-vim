@@ -1,0 +1,3 @@
+#! /bin/sh
+
+curl -fsSl https://raw.githubusercontent.com/tridactyl/tridactyl/master/native/install.sh | bash
