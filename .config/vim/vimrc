@@ -668,8 +668,10 @@ fun s:ConfigureRust()
 	nnoremap <LocalLeader>s :Cargo script "%"<CR>
 	nnoremap <LocalLeader>t :RustTest<CR>
 	nnoremap <LocalLeader>T :Cargo test<CR>
+	let b:surround_100 = "dbg!(\r)"
 	let b:surround_111 = "Some(\r)"
 	let b:surround_114 = "Ok(\r)"
+	let b:surround_118 = "vec![\r]"
 	let b:surround_66 = "Box<\r>"
 	let b:surround_79 = "Option<\r>"
 	let b:surround_82 = "Result<\r>"
