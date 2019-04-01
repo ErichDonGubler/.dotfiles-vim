@@ -600,11 +600,10 @@ else
 endif
 
 " Completion/snippets
+Plug 'maralla/completor.vim'
+let g:completor_blacklist = ['tagbar', 'qf', 'netrw', 'unite', 'vimwiki', 'markdown']
 Plug 'honza/vim-snippets'
 if has('python')
-	Plug 'maralla/completor.vim'
-	let g:completor_blacklist = ['tagbar', 'qf', 'netrw', 'unite', 'vimwiki', 'markdown']
-
 	Plug 'SirVer/ultisnips'
 	let g:UltiSnipsExpandTrigger = '<Tab>'
 	let g:UltiSnipsJumpForwardTrigger = '<Tab>'
