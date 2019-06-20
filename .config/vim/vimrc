@@ -645,9 +645,12 @@ else
 endif
 
 " Expanded language support
+
 Plug 'vitalk/vim-shebang'
+
 Plug 'gisphm/vim-gitignore'
 Plug 'plasticboy/vim-markdown'
+
 set fo-=l
 fun! s:SetRowLimit(length, ...)
 	let rulers = a:length
@@ -683,6 +686,7 @@ let g:tagbar_type_markdown = {
 			\ 'k:Heading_L3'
 		\ ]
 	\ }
+
 Plug 'rust-lang/rust.vim'
 fun! s:ConfigureRustSandwiches()
 	fun! s:AddRustSandwichBinding(input, start, end)
@@ -728,8 +732,11 @@ fun! s:AddCargoScriptShebang()
 	AddShebangPattern! rust ^#!.*/bin/env\s\+run-cargo-script\>
 endfun
 call plug#add_end_task(function('s:AddCargoScriptShebang'))
+
 Plug 'OrangeT/vim-csharp'
+
 Plug 'cespare/vim-toml'
+
 Plug 'jceb/vim-orgmode' | Plug 'tpope/vim-speeddating'
 let g:org_heading_highlight_colors = ['Identifier']
 let g:org_heading_highlight_levels = 10 " Some arbitrary number
@@ -737,9 +744,11 @@ augroup orgmode
 	 au!
 	 au FileType text,org :EnableWordWrap
 augroup END
+
 let java_comment_strings=1
 let java_highlight_functions=1
 let java_highlight_java_lang_ids=1
+
 Plug 'pangloss/vim-javascript'
 let g:tagbar_type_javascript = {
 	\ 'ctagstype' : 'JavaScript',
@@ -762,7 +771,9 @@ Plug 'mxw/vim-jsx'
 Plug 'leafgarland/typescript-vim'
 Plug 'lepture/vim-jinja'
 Plug 'leafgarland/typescript-vim'
+
 Plug 'octol/vim-cpp-enhanced-highlight'
+
 Plug 'python-mode/python-mode'
 let g:pymode_rope = 0
 augroup Batch
