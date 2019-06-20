@@ -28,6 +28,14 @@ snippet Option
 	Option<${1:${VISUAL:Data}}>
 snippet s
 	Some(${1:${VISUAL:data}})
+snippet v
+	vec![${1:${VISUAL:data}}]
+snippet V
+	Vec<${1:${VISUAL:Data}}>
+snippet b
+	Box::new(${1:${VISUAL:data}})
+snippet B
+	Box<${1:${VISUAL:Data}}>
 snippet parsestruct
 	#[derive(Debug)]
 	struct Raw${1:Thing}(pub ${2:Primitive});
