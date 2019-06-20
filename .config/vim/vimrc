@@ -458,6 +458,7 @@ augroup StripWhitespace
 	au!
 	au BufNewFile,BufRead *.diff DisableStripWhitespaceOnSave
 	au BufNewFile,BufRead *.patch DisableStripWhitespaceOnSave
+	au FileType ctrlsf DisableStripWhitespaceOnSave
 augroup END
 "   Alignment
 Plug 'junegunn/vim-easy-align'
