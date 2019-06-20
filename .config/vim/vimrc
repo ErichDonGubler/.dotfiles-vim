@@ -566,6 +566,8 @@ vnoremap <C-Left> B
 vnoremap <C-Right> E
 Plug 'tpope/vim-unimpaired'
 Plug 'easymotion/vim-easymotion'
+Plug 'goldfeld/vim-seek'
+let g:seek_enable_jumps = 1
 "   Search
 set hlsearch
 set ignorecase
