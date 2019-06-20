@@ -512,7 +512,6 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
 Plug 'andymass/vim-matchup'
 let g:matchup_matchparen_deferred = 1
 let g:matchup_matchparen_hi_surround_always = 1
@@ -526,6 +525,34 @@ fun! s:ConfigureMatchup()
 	call g:SublimeMonokaiHighlight('MatchWord', { 'format': 'reverse' })
 endf
 call plug#add_end_task(function('s:ConfigureMatchup'))
+Plug 'machakann/vim-sandwich'
+fun! s:ConfigureSandwich()
+	let g:sandwich#recipes = deepcopy(g:sandwich#default_recipes)
+	" Let's get vim-surround semantics for open/closing delimiters back
+	let g:sandwich#recipes += [
+	\ {'buns': ['{ ', ' }'], 'nesting': 1, 'match_syntax': 1,
+	\  'kind': ['add', 'replace'], 'action': ['add'], 'input': ['{']},
+	\
+	\ {'buns': ['[ ', ' ]'], 'nesting': 1, 'match_syntax': 1,
+	\  'kind': ['add', 'replace'], 'action': ['add'], 'input': ['[']},
+	\
+	\ {'buns': ['( ', ' )'], 'nesting': 1, 'match_syntax': 1,
+	\  'kind': ['add', 'replace'], 'action': ['add'], 'input': ['(']},
+	\
+	\ {'buns': ['{\s*', '\s*}'],   'nesting': 1, 'regex': 1,
+	\  'match_syntax': 1, 'kind': ['delete', 'replace', 'textobj'],
+	\  'action': ['delete'], 'input': ['{']},
+	\
+	\ {'buns': ['\[\s*', '\s*\]'], 'nesting': 1, 'regex': 1,
+	\  'match_syntax': 1, 'kind': ['delete', 'replace', 'textobj'],
+	\  'action': ['delete'], 'input': ['[']},
+	\
+	\ {'buns': ['(\s*', '\s*)'],   'nesting': 1, 'regex': 1,
+	\  'match_syntax': 1, 'kind': ['delete', 'replace', 'textobj'],
+	\  'action': ['delete'], 'input': ['(']},
+	\ ]
+endfun
+call plug#add_end_task(function('s:ConfigureSandwich'))
 "     Datetime
 nnoremap <F5> "=strftime("%Y-%m-%d")<CR>P
 inoremap <F5> <C-R>=strftime("%Y-%m-%d")<CR>
@@ -657,6 +684,26 @@ let g:tagbar_type_markdown = {
 		\ ]
 	\ }
 Plug 'rust-lang/rust.vim'
+fun! s:ConfigureRustSandwiches()
+	fun! s:AddRustSandwichBinding(input, start, end)
+		let g:sandwich#recipes += [{
+			\ 'buns': [a:start, a:end],
+			\ 'filetype': ['rust'],
+			\ 'input': [a:input],
+			\ 'nesting': 1,
+			\ 'indent': 1
+		\ }]
+	endf
+	call s:AddRustSandwichBinding('d', 'dbg!(', ')')
+	call s:AddRustSandwichBinding('o', 'Some(', ')')
+	call s:AddRustSandwichBinding('r', 'Ok(', ')')
+	call s:AddRustSandwichBinding('v', 'vec![', ']')
+	call s:AddRustSandwichBinding('b', 'Box::new(', ')')
+	call s:AddRustSandwichBinding('B', 'Box<', '>')
+	call s:AddRustSandwichBinding('O', 'Option<', '>')
+	call s:AddRustSandwichBinding('R', 'Result<', '>')
+endfun
+call plug#add_end_task(function('s:ConfigureRustSandwiches'))
 fun s:ConfigureRust()
 	nnoremap <LocalLeader>b :Cargo build<CR>
 	nnoremap <LocalLeader>B :Cargo build --release<CR>
@@ -671,14 +718,6 @@ fun s:ConfigureRust()
 	nnoremap <LocalLeader>s :Cargo script "%"<CR>
 	nnoremap <LocalLeader>t :RustTest<CR>
 	nnoremap <LocalLeader>T :Cargo test<CR>
-	let b:surround_100 = "dbg!(\r)"
-	let b:surround_111 = "Some(\r)"
-	let b:surround_114 = "Ok(\r)"
-	let b:surround_118 = "vec![\r]"
-	let b:surround_66 = "Box<\r>"
-	let b:surround_79 = "Option<\r>"
-	let b:surround_82 = "Result<\r>"
-	let b:surround_98 = "Box::new(\r)"
 endf
 augroup rust
 	au!
