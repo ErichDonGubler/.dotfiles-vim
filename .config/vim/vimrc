@@ -709,7 +709,7 @@ fun! s:ConfigureRustSandwiches()
 	call s:AddRustSandwichBinding('R', 'Result<', '>')
 endfun
 call plug#add_end_task(function('s:ConfigureRustSandwiches'))
-fun s:ConfigureRust()
+fun! s:ConfigureRust()
 	nnoremap <LocalLeader>b :Cargo build<CR>
 	nnoremap <LocalLeader>B :Cargo build --release<CR>
 	nnoremap <LocalLeader>c :Cargo check<CR>
