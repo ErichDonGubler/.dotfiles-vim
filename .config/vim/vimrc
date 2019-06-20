@@ -649,7 +649,6 @@ endif
 Plug 'vitalk/vim-shebang'
 
 Plug 'gisphm/vim-gitignore'
-Plug 'plasticboy/vim-markdown'
 
 set fo-=l
 fun! s:SetRowLimit(length, ...)
@@ -667,16 +666,18 @@ fun! s:SetRowLimit(length, ...)
 		set fo-=t
 	endif
 endfun
+command! -nargs=+ SetRowLimit call s:SetRowLimit(<f-args>)
+
 augroup DefaultRowLimit
 	au!
 	au FileType * SetRowLimit 120
 augroup END
-command! -nargs=+ SetRowLimit call s:SetRowLimit(<f-args>)
+
+Plug 'plasticboy/vim-markdown'
 augroup markdown
 	au!
-	au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
-	au FileType markdown,ghmarkdown SetRowLimit 80
-	au FileType markdown,ghmarkdown EnableWordWrap
+	au FileType markdown SetRowLimit 80
+	au FileType markdown EnableWordWrap
 augroup END
 let g:tagbar_type_markdown = {
 		\ 'ctagstype' : 'markdown',
