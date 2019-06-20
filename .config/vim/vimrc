@@ -201,7 +201,6 @@ fun! s:ConfigureColors()
 	colorscheme sublimemonokai
 
 	call g:SublimeMonokaiHighlight('BreezeHlElement', { 'format': 'reverse' })
-	call g:SublimeMonokaiHighlight('MatchTag', { 'format': 'reverse' })
 	call g:SublimeMonokaiHighlight('Todo', { 'fg': g:sublimemonokai_orange,   'format': 'bold,italic' }) " TODO: What the crap, man!
 
 	" FIXME: Apparently "new" file and file are mixed up for the diff
@@ -227,10 +226,6 @@ fun! s:ConfigureColors()
 	hi! link zshDeref           SublimeAqua
 	hi! link zshOption          Special
 	hi! link zshTypes           SublimeType
-
-	if has('gui_running')
-		call g:SublimeMonokaiHighlight('MatchParen', { 'format': 'reverse' })
-	endif
 endfun
 call plug#add_end_task(function('s:ConfigureColors'))
 
@@ -504,12 +499,6 @@ nmap <LocalLeader>h :BreezeParent<CR>
 nmap <LocalLeader>% :BreezeMatchTag<CR>
 Plug 'mattn/emmet-vim'
 Plug 'whatyouhide/vim-textobj-xmlattr'
-if has('python')
-	Plug 'Valloric/MatchTagAlways'
-	let g:mta_use_matchparen_group = 0
-	let g:mta_set_default_matchtag_color = 0
-	let g:breeze_highlight_curr_element = 0
-endif
 "   Other nice highlighting plugins
 Plug 'unblevable/quick-scope'
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
@@ -523,6 +512,19 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'andymass/vim-matchup'
+let g:matchup_matchparen_deferred = 1
+let g:matchup_matchparen_hi_surround_always = 1
+let g:matchup_override_vimtex = 1
+let g:matchup_surround_enabled = 1
+fun! s:ConfigureMatchup()
+	hi! clear MatchParenCur
+	hi! clear MatchWordCur
+	call g:SublimeMonokaiHighlight('MatchParen', { 'format': 'reverse' })
+	call g:SublimeMonokaiHighlight('MatchTag', { 'format': 'reverse' })
+	call g:SublimeMonokaiHighlight('MatchWord', { 'format': 'reverse' })
+endf
+call plug#add_end_task(function('s:ConfigureMatchup'))
 "     Datetime
 nnoremap <F5> "=strftime("%Y-%m-%d")<CR>P
 inoremap <F5> <C-R>=strftime("%Y-%m-%d")<CR>
