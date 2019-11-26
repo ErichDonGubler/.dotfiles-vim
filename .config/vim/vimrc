@@ -243,7 +243,17 @@ let g:lightline = {
 	\ }
 
 "   Git integration
+let g:gitgutter_map_keys = 0
 Plug 'airblade/vim-gitgutter'
+nmap [h <Plug>(GitGutterPrevHunk)
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap ghp <Plug>(GitGutterPreviewHunk)
+nmap ghs <Plug>(GitGutterStageHunk)
+nmap ghu <Plug>(GitGutterUndoHunk)
+omap ah <Plug>(GitGutterTextObjectOuterPending)
+omap ih <Plug>(GitGutterTextObjectInnerPending)
+xmap ah <Plug>(GitGutterTextObjectOuterVisual)
+xmap ih <Plug>(GitGutterTextObjectInnerVisual)
 if executable('rg')
 	let g:gitgutter_grep = 'rg ' . s:ripgrep_platform_args
 endif
