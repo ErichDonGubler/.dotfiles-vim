@@ -713,14 +713,18 @@ fun! s:ConfigureRustSandwiches()
 			\ 'indent': 1
 		\ }]
 	endf
+	call s:AddRustSandwichBinding('A', 'Arc<', '>')
+	call s:AddRustSandwichBinding('B', 'Box<', '>')
+	call s:AddRustSandwichBinding('O', 'Option<', '>')
+	call s:AddRustSandwichBinding('P', 'PhantomData<', '>')
+	call s:AddRustSandwichBinding('R', 'Result<', '>')
+	call s:AddRustSandwichBinding('V', 'Vec<', '>')
+	call s:AddRustSandwichBinding('a', 'Arc::new(', ')')
+	call s:AddRustSandwichBinding('b', 'Box::new(', ')')
 	call s:AddRustSandwichBinding('d', 'dbg!(', ')')
 	call s:AddRustSandwichBinding('o', 'Some(', ')')
 	call s:AddRustSandwichBinding('r', 'Ok(', ')')
 	call s:AddRustSandwichBinding('v', 'vec![', ']')
-	call s:AddRustSandwichBinding('b', 'Box::new(', ')')
-	call s:AddRustSandwichBinding('B', 'Box<', '>')
-	call s:AddRustSandwichBinding('O', 'Option<', '>')
-	call s:AddRustSandwichBinding('R', 'Result<', '>')
 endfun
 call plug#add_end_task(function('s:ConfigureRustSandwiches'))
 fun! s:ConfigureRust()
