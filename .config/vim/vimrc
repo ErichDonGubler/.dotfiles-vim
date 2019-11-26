@@ -824,6 +824,7 @@ fun! s:ConfigurePhpColors()
 	hi! link phpMemberSelector Keyword
 endfun
 call plug#add_end_task(function('s:ConfigurePhpColors'))
+Plug 'zchee/vim-flatbuffers'
 
 fun! s:EscapeFileAsArg(file_name)
 	let escaped = expand(a:file_name)
