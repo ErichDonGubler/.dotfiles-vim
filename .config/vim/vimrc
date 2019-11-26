@@ -579,6 +579,7 @@ vnoremap <C-Left> B
 vnoremap <C-Right> E
 Plug 'tpope/vim-unimpaired'
 Plug 'easymotion/vim-easymotion'
+Plug 'christoomey/vim-sort-motion'
 "   Search
 set hlsearch
 set ignorecase
