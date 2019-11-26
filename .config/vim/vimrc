@@ -792,6 +792,7 @@ Plug 'lepture/vim-jinja'
 Plug 'leafgarland/typescript-vim'
 
 Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'pboettch/vim-cmake-syntax'
 
 Plug 'python-mode/python-mode'
 let g:pymode_rope = 0
