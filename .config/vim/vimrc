@@ -220,7 +220,9 @@ fun! s:ConfigureColors()
 	" It's nice to have the builtins highlighted, but they can cause some conflicts
 	hi! link pythonBuiltInObj   Constant
 	hi! link pythonBuiltInType  Constant
-	hi! link rustEnumVariant    Special
+	hi! link rustAttribute      SublimeDocumentation
+	hi! link rustDerive         SublimeDocumentation
+	hi! link rustDeriveTrait    SublimeDocumentation
 	hi! link rustLifetime       Special
 	hi! link xmlProcessingDelim Comment
 	hi! link yamlFlowIndicator  Special
