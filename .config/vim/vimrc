@@ -379,7 +379,7 @@ Plug 'ivalkeen/vim-ctrlp-tjump' | Plug 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_tjump_only_silent = 1
 nnoremap <c-]> :CtrlPtjump<CR>
 vnoremap <c-]> :CtrlPtjumpVisual<CR>
-if has('python')
+if has('python3')
 	Plug 'FelikZ/ctrlp-py-matcher' | Plug 'ctrlpvim/ctrlp.vim'
 	let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 endif
@@ -630,7 +630,7 @@ Plug 'ErichDonGubler/ctrlp-compiler'
 map <Leader>B :CtrlPCompiler<CR>
 
 " Linting
-if has('python')
+if has('python3')
 	Plug 'w0rp/ale'
 	augroup CppAleConfig
 		au!
@@ -647,7 +647,7 @@ endif
 Plug 'maralla/completor.vim'
 let g:completor_blacklist = ['tagbar', 'qf', 'netrw', 'unite', 'vimwiki', 'markdown']
 Plug 'honza/vim-snippets'
-if has('python')
+if has('python3')
 	Plug 'SirVer/ultisnips'
 	let g:UltiSnipsExpandTrigger = '<Tab>'
 	let g:UltiSnipsJumpForwardTrigger = '<Tab>'
