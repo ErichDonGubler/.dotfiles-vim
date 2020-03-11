@@ -463,15 +463,35 @@ fun! s:BindWordWrapOptions()
 	nnoremap <Leader><S-Tab> :call g:word_wrap_bundle.ToggleGlobal()<CR>
 endfun
 call plug#add_end_task(function('s:BindWordWrapOptions'))
-"     Trim trailing whitespace on save
+"     Auto-formatting
 Plug 'ntpeters/vim-better-whitespace'
-let g:strip_whitespace_on_save=1
+let g:better_whitespace_operator = '_s'
+let g:show_spaces_that_precede_tabs = 0
+let g:strip_whitespace_confirm = 0
 hi! link ExtraWhitespace Error
-augroup StripWhitespace
+if has('python')
+	let g:strip_whitespace_on_save = 0
+	Plug 'Chiel92/vim-autoformat'
+	augroup WhitespaceAutoformat
+		au!
+		au BufWrite * :Autoformat
+	augroup END
+	fun! s:disable_whitespace_stripping()
+		let b:autoformat_remove_trailing_spaces = 0
+	endfun
+else
+	let g:strip_whitespace_on_save = 1
+	augroup WhitespaceAutoformat
+		au!
+	augroup END
+	fun! s:disable_whitespace_stripping()
+		DisableStripWhitespaceOnSave
+	endf
+endif
+augroup WhitespaceAutoformatBlacklist
 	au!
-	au BufNewFile,BufRead *.diff DisableStripWhitespaceOnSave
-	au BufNewFile,BufRead *.patch DisableStripWhitespaceOnSave
-	au FileType ctrlsf DisableStripWhitespaceOnSave
+	au FileType diff call s:disable_whitespace_stripping()
+	au FileType ctrlsf call s:disable_whitespace_stripping()
 augroup END
 "   Alignment
 Plug 'junegunn/vim-easy-align'
