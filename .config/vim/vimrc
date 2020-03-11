@@ -845,6 +845,7 @@ fun! s:ConfigurePhpColors()
 endfun
 call plug#add_end_task(function('s:ConfigurePhpColors'))
 Plug 'zchee/vim-flatbuffers'
+Plug 'andys8/vim-elm-syntax'
 
 fun! s:EscapeFileAsArg(file_name)
 	let escaped = expand(a:file_name)
