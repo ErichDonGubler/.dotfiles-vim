@@ -208,6 +208,7 @@ fun! s:ConfigureColors()
 	" FIXME: There's no distinguishing between the second file and the `diff`
 	" line. Ew!
 	hi! link cmakeVariableValue SublimeAqua
+	hi! link cssMediaType       Special
 	hi! link diffLine           SublimeAqua
 	hi! link diffNewFile        SublimeBrightWhite
 	hi! link dotBrackEncl       Keyword
