@@ -237,10 +237,10 @@ set laststatus=2
 set noshowmode
 Plug 'itchyny/lightline.vim'
 let g:lightline = {
-		\ 'enable': {
-		\   'tabline': 0
-		\ }
-	\ }
+			\ 'enable': {
+			\   'tabline': 0
+			\ }
+			\ }
 
 "   Git integration
 let g:gitgutter_map_keys = 0
@@ -563,27 +563,27 @@ fun! s:ConfigureSandwich()
 	let g:sandwich#recipes = deepcopy(g:sandwich#default_recipes)
 	" Let's get vim-surround semantics for open/closing delimiters back
 	let g:sandwich#recipes += [
-	\ {'buns': ['{ ', ' }'], 'nesting': 1, 'match_syntax': 1,
-	\  'kind': ['add', 'replace'], 'action': ['add'], 'input': ['{']},
-	\
-	\ {'buns': ['[ ', ' ]'], 'nesting': 1, 'match_syntax': 1,
-	\  'kind': ['add', 'replace'], 'action': ['add'], 'input': ['[']},
-	\
-	\ {'buns': ['( ', ' )'], 'nesting': 1, 'match_syntax': 1,
-	\  'kind': ['add', 'replace'], 'action': ['add'], 'input': ['(']},
-	\
-	\ {'buns': ['{\s*', '\s*}'],   'nesting': 1, 'regex': 1,
-	\  'match_syntax': 1, 'kind': ['delete', 'replace', 'textobj'],
-	\  'action': ['delete'], 'input': ['{']},
-	\
-	\ {'buns': ['\[\s*', '\s*\]'], 'nesting': 1, 'regex': 1,
-	\  'match_syntax': 1, 'kind': ['delete', 'replace', 'textobj'],
-	\  'action': ['delete'], 'input': ['[']},
-	\
-	\ {'buns': ['(\s*', '\s*)'],   'nesting': 1, 'regex': 1,
-	\  'match_syntax': 1, 'kind': ['delete', 'replace', 'textobj'],
-	\  'action': ['delete'], 'input': ['(']},
-	\ ]
+				\ {'buns': ['{ ', ' }'], 'nesting': 1, 'match_syntax': 1,
+				\  'kind': ['add', 'replace'], 'action': ['add'], 'input': ['{']},
+				\
+				\ {'buns': ['[ ', ' ]'], 'nesting': 1, 'match_syntax': 1,
+				\  'kind': ['add', 'replace'], 'action': ['add'], 'input': ['[']},
+				\
+				\ {'buns': ['( ', ' )'], 'nesting': 1, 'match_syntax': 1,
+				\  'kind': ['add', 'replace'], 'action': ['add'], 'input': ['(']},
+				\
+				\ {'buns': ['{\s*', '\s*}'],   'nesting': 1, 'regex': 1,
+				\  'match_syntax': 1, 'kind': ['delete', 'replace', 'textobj'],
+				\  'action': ['delete'], 'input': ['{']},
+				\
+				\ {'buns': ['\[\s*', '\s*\]'], 'nesting': 1, 'regex': 1,
+				\  'match_syntax': 1, 'kind': ['delete', 'replace', 'textobj'],
+				\  'action': ['delete'], 'input': ['[']},
+				\
+				\ {'buns': ['(\s*', '\s*)'],   'nesting': 1, 'regex': 1,
+				\  'match_syntax': 1, 'kind': ['delete', 'replace', 'textobj'],
+				\  'action': ['delete'], 'input': ['(']},
+				\ ]
 endfun
 call plug#add_end_task(function('s:ConfigureSandwich'))
 "     Datetime
@@ -620,17 +620,17 @@ map n <Plug>(is-nohl)<Plug>(anzu-n-with-echo)
 map N <Plug>(is-nohl)<Plug>(anzu-N-with-echo)
 Plug 'gelguy/cmd2.vim'
 let g:Cmd2_options = {
-		\ '_complete_ignorecase': 1,
-		\ '_complete_uniq_ignorecase': 0,
-		\ '_complete_fuzzy': 1,
-	\ }
+			\ '_complete_ignorecase': 1,
+			\ '_complete_uniq_ignorecase': 0,
+			\ '_complete_fuzzy': 1,
+			\ }
 cmap <F12> <Plug>(Cmd2Suggest)
 "   Multi-file search
 Plug 'dyng/ctrlsf.vim'
 nnoremap <Leader>F :CtrlSF<Space>
 let g:ctrlsf_auto_focus = {
-	\ "at": "start"
-	\ }
+			\ "at": "start"
+			\ }
 let g:ctrlsf_default_view_mode = 'compact'
 let g:ctrlsf_indent = 2
 let g:ctrlsf_populate_qflist = 1
@@ -638,8 +638,8 @@ nnoremap <Leader>f :CtrlSFToggle<CR>
 if executable('rg')
 	let g:ctrlsf_ackprg = 'rg'
 	let g:ctrlsf_extra_backend_args = {
-		\ 'rg': '--follow ' . s:ripgrep_platform_args
-		\ }
+				\ 'rg': '--follow ' . s:ripgrep_platform_args
+				\ }
 elseif executable('grep')
 	let g:ctrlsf_ackprg = 'grep'
 endif
@@ -714,24 +714,24 @@ augroup markdown
 	au FileType markdown EnableWordWrap
 augroup END
 let g:tagbar_type_markdown = {
-		\ 'ctagstype' : 'markdown',
-		\ 'kinds' : [
+			\ 'ctagstype' : 'markdown',
+			\ 'kinds' : [
 			\ 'h:Heading_L1',
 			\ 'i:Heading_L2',
 			\ 'k:Heading_L3'
-		\ ]
-	\ }
+			\ ]
+			\ }
 
 Plug 'rust-lang/rust.vim'
 fun! s:ConfigureRustSandwiches()
 	fun! s:AddRustSandwichBinding(input, start, end)
 		let g:sandwich#recipes += [{
-			\ 'buns': [a:start, a:end],
-			\ 'filetype': ['rust'],
-			\ 'input': [a:input],
-			\ 'nesting': 1,
-			\ 'indent': 1
-		\ }]
+					\ 'buns': [a:start, a:end],
+					\ 'filetype': ['rust'],
+					\ 'input': [a:input],
+					\ 'nesting': 1,
+					\ 'indent': 1
+					\ }]
 	endf
 	call s:AddRustSandwichBinding('A', 'Arc<', '>')
 	call s:AddRustSandwichBinding('B', 'Box<', '>')
@@ -780,8 +780,8 @@ Plug 'jceb/vim-orgmode' | Plug 'tpope/vim-speeddating'
 let g:org_heading_highlight_colors = ['Identifier']
 let g:org_heading_highlight_levels = 10 " Some arbitrary number
 augroup orgmode
-	 au!
-	 au FileType text,org :EnableWordWrap
+	au!
+	au FileType text,org :EnableWordWrap
 augroup END
 
 let java_comment_strings=1
@@ -790,17 +790,17 @@ let java_highlight_java_lang_ids=1
 
 Plug 'pangloss/vim-javascript'
 let g:tagbar_type_javascript = {
-	\ 'ctagstype' : 'JavaScript',
-	\ 'kinds'     : [
-		\ 'o:objects',
-		\ 'c:classes',
-		\ 'f:functions',
-		\ 'a:arrays',
-		\ 'm:methods',
-		\ 'n:constants',
-		\ 's:strings'
-		\ ]
-	\ }
+			\ 'ctagstype' : 'JavaScript',
+			\ 'kinds'     : [
+			\ 'o:objects',
+			\ 'c:classes',
+			\ 'f:functions',
+			\ 'a:arrays',
+			\ 'm:methods',
+			\ 'n:constants',
+			\ 's:strings'
+			\ ]
+			\ }
 if executable('npm')
 	Plug 'posva/vim-vue', { 'do': 'npm i -g eslint eslint-plugin-vue' }
 else
