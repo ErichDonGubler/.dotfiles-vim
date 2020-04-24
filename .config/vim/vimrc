@@ -542,7 +542,7 @@ let g:vim_current_word#highlight_only_in_focused_window = 1
 hi link CurrentWord Underlined
 "    Misc
 Plug 'cohama/lexima.vim'
-Plug 'terryma/vim-multiple-cursors'
+Plug 'mg979/vim-visual-multi'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
