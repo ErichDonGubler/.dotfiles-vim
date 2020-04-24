@@ -543,7 +543,8 @@ hi link CurrentWord Underlined
 "    Misc
 Plug 'cohama/lexima.vim'
 Plug 'mg979/vim-visual-multi'
-Plug 'tpope/vim-abolish'
+Plug 'arthurxavierx/vim-caser'
+let g:caser_prefix = 'gS'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'andymass/vim-matchup'
