@@ -594,6 +594,10 @@ inoremap <F5> <C-R>=strftime("%Y-%m-%d")<CR>
 nnoremap <S-F5> "=strftime("%Y-%m-%d %H:%M:%S")<CR>P
 inoremap <S-F5> <C-R>=strftime("%Y-%m-%d %H:%M:%S")<CR>
 
+" Register management
+Plug 'machakann/vim-highlightedyank'
+let g:highlightedyank_highlight_duration = 50
+
 " Buffer navigation
 "   Selection behavior more consistent with other visual editors
 "   TODO: How can we make this change based on the direction we went from the selection?
