@@ -347,6 +347,7 @@ if executable('ctags')
 	endif
 	let g:gutentags_ctags_tagfile = '.tags'
 	let g:gutentags_resolve_symlinks = 1
+
 	Plug 'majutsushi/tagbar'
 	nmap <Leader>t :TagbarToggle<CR>
 endif
