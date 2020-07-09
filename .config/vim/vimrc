@@ -9,6 +9,8 @@ if has('gui_win32') " Windows gVim handles some cached assets differently becaus
 	let g:vim_cache_directory = $XDG_CACHE_HOME . '/gvim'
 endif
 
+let g:has_python = has('python') || has('python3')
+
 let s:ripgrep_platform_args = ''
 if has('win32unix')
 	let s:ripgrep_platform_args = '--path-separator="//" --color never'
@@ -274,7 +276,7 @@ let g:NERDTreeIndicatorMapCustom = {
 			\ "Unmerged"  : "=",
 			\ "Untracked" : "_",
 			\ }
-if has('python')
+if g:has_python
 	Plug 'jaxbot/github-issues.vim'
 endif
 "   Pane manipulation
@@ -383,7 +385,7 @@ Plug 'ivalkeen/vim-ctrlp-tjump' | Plug 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_tjump_only_silent = 1
 nnoremap <c-]> :CtrlPtjump<CR>
 vnoremap <c-]> :CtrlPtjumpVisual<CR>
-if has('python3')
+if g:has_python
 	Plug 'FelikZ/ctrlp-py-matcher' | Plug 'ctrlpvim/ctrlp.vim'
 	let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 endif
@@ -659,7 +661,7 @@ Plug 'ErichDonGubler/ctrlp-compiler'
 map <Leader>B :CtrlPCompiler<CR>
 
 " Linting
-if has('python3')
+if g:has_python
 	Plug 'w0rp/ale'
 	augroup CppAleConfig
 		au!
@@ -676,7 +678,7 @@ endif
 Plug 'maralla/completor.vim'
 let g:completor_blacklist = ['tagbar', 'qf', 'netrw', 'unite', 'vimwiki', 'markdown']
 Plug 'honza/vim-snippets'
-if has('python3')
+if g:has_python
 	Plug 'SirVer/ultisnips'
 	let g:UltiSnipsExpandTrigger = '<Tab>'
 	let g:UltiSnipsJumpForwardTrigger = '<Tab>'
