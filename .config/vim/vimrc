@@ -3,10 +3,12 @@ set wildmode=longest,list,full
 " Basic config/cache paths
 let $VIMHOME = $XDG_CONFIG_HOME . "/vim/"
 set rtp^=$VIMHOME
+
 let g:vim_cache_directory = $XDG_CACHE_HOME . '/vim'
 if has('gui_win32') " Windows gVim handles some cached assets differently because of paths
 	let g:vim_cache_directory = $XDG_CACHE_HOME . '/gvim'
 endif
+
 let s:ripgrep_platform_args = ''
 if has('win32unix')
 	let s:ripgrep_platform_args = '--path-separator="//" --color never'
