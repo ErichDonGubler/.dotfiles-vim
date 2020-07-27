@@ -482,22 +482,47 @@ if has('python')
 		au!
 		au BufWrite * :Autoformat
 	augroup END
-	fun! s:disable_whitespace_stripping()
+
+	fun! s:disable_trailing_whitespace_stripping()
 		let b:autoformat_remove_trailing_spaces = 0
 	endfun
+	fun! s:disable_indentation_fixing()
+		let b:autoformat_autoindent = 0
+	endf
+	fun! s:disable_retab()
+		let b:autoformat_retab = 0
+	endf
 else
 	let g:strip_whitespace_on_save = 1
 	augroup WhitespaceAutoformat
 		au!
 	augroup END
-	fun! s:disable_whitespace_stripping()
+
+	fun! s:disable_trailing_whitespace_stripping()
 		DisableStripWhitespaceOnSave
 	endf
+	fun! s:disable_indentation_fixing()
+	endf
+	fun! s:disable_retab()
+	endf
 endif
+fun! s:disable_whitespace_fixing()
+	call s:disable_trailing_whitespace_stripping()
+	call s:disable_indentation_fixing()
+	call s:disable_retab()
+endf
 augroup WhitespaceAutoformatBlacklist
 	au!
-	au FileType diff call s:disable_whitespace_stripping()
-	au FileType ctrlsf call s:disable_whitespace_stripping()
+	au BufNewFile,BufRead *.diff call s:disable_whitespace_fixing()
+	au BufNewFile,BufRead *.patch call s:disable_whitespace_fixing()
+	au FileType diff call s:disable_whitespace_fixing()
+	au FileType ctrlsf call s:disable_whitespace_fixing()
+	au FileType gitrebase call s:disable_whitespace_fixing()
+	au FileType gitcommit call s:disable_indentation_fixing()
+	au BufNewFile,BufRead git-rebase-todo call s:disable_whitespace_fixing()
+	au BufNewFile,BufRead *.md call s:disable_indentation_fixing()
+	au FileType markdown call s:disable_indentation_fixing()
+	au FileType snippets call s:disable_whitespace_fixing()
 augroup END
 "   Alignment
 Plug 'junegunn/vim-easy-align'
