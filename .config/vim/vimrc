@@ -476,7 +476,7 @@ let g:better_whitespace_operator = '_s'
 let g:show_spaces_that_precede_tabs = 0
 let g:strip_whitespace_confirm = 0
 hi! link ExtraWhitespace Error
-if has('python')
+if g:has_python
 	let g:strip_whitespace_on_save = 0
 	Plug 'Chiel92/vim-autoformat'
 	augroup WhitespaceAutoformat
