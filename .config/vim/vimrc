@@ -250,16 +250,15 @@ let g:lightline = {
 "   Git integration
 set updatetime=100
 let g:gitgutter_map_keys = 0
-Plug 'airblade/vim-gitgutter'
-nmap [h <Plug>(GitGutterPrevHunk)
-nmap ]h <Plug>(GitGutterNextHunk)
-nmap ghp <Plug>(GitGutterPreviewHunk)
-nmap ghs <Plug>(GitGutterStageHunk)
-nmap ghu <Plug>(GitGutterUndoHunk)
-omap ah <Plug>(GitGutterTextObjectOuterPending)
-omap ih <Plug>(GitGutterTextObjectInnerPending)
-xmap ah <Plug>(GitGutterTextObjectOuterVisual)
-xmap ih <Plug>(GitGutterTextObjectInnerVisual)
+Plug 'mhinz/vim-signify'
+nmap [h <Plug>(signify-prev-hunk)
+nmap ]h <Plug>(signify-next-hunk)
+nmap ghp :SignifyHunkDiff<CR>
+nmap ghu :SignifyHunkUndo<CR>
+omap ah <Plug>(signify-motion-outer-pending)
+omap ih <Plug>(signify-motion-inner-pending)
+xmap ah <Plug>(signify-motion-outer-visual)
+xmap ih <Plug>(signify-motion-inner-visual)
 if executable('rg')
 	let g:gitgutter_grep = 'rg ' . s:ripgrep_platform_args
 endif
